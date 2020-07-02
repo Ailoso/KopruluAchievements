@@ -50,6 +50,7 @@ struct libAE8FC9D3_gs_KL_AchievementFanfarePanel {
 struct libAE8FC9D3_gs_KL_UserProfile {
     int lv_dialog;
     int lv_userProfilePanel;
+    int lv_closeButton;
     int[8] lv_recentAchievementItem;
     int[8] lv_recentItemTitle;
     int[8] lv_recentItemDescription;
@@ -91,6 +92,7 @@ struct libAE8FC9D3_gs_KL_AchievementListbox {
 
 // Variable Declarations
 int[libAE8FC9D3_gv_kL_MaxAvailableLists + 1] libAE8FC9D3_gv_kL_AchievementIndexing;
+bool[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_UserMenuActive;
 libAE8FC9D3_gs_KL_AchievementFanfarePanel[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_AchievementFanfarePanel;
 libAE8FC9D3_gs_KL_UserProfile[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_UserProfile;
 libAE8FC9D3_gs_KL_AchievementListbox[libAE8FC9D3_gv_kL_MaxPlayers + 1][21] libAE8FC9D3_gv_kL_AchievementListbox;
@@ -152,6 +154,8 @@ void libAE8FC9D3_gf_KL_UpdateAchievementPanelData (int lp_player);
 void libAE8FC9D3_gf_KL_AchievementMenuData (int lp_player);
 
 // Trigger Declarations
+trigger libAE8FC9D3_gt_PlyerOpensMenu;
+trigger libAE8FC9D3_gt_PlayerClosesMenu;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP1;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP2;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP3;
@@ -164,9 +168,7 @@ trigger libAE8FC9D3_gt_KL_HideAchievementPanelP9;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP10;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP11;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP12;
-trigger libAE8FC9D3_gt_DebugAwardSampleAchievement;
-trigger libAE8FC9D3_gt_DebugAttemptInitialization;
-trigger libAE8FC9D3_gt_DebugShowUserProfile;
+trigger libAE8FC9D3_gt_AttemptInitialization;
 
 // Library Initialization
 void libAE8FC9D3_InitVariables ();

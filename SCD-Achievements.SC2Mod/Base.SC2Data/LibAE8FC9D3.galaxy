@@ -49,6 +49,7 @@ void libAE8FC9D3_InitVariables () {
     for (init_i = 0; init_i <= libAE8FC9D3_gv_kL_MaxPlayers; init_i += 1) {
         libAE8FC9D3_gv_kL_UserProfile[init_i].lv_dialog = c_invalidDialogId;
         libAE8FC9D3_gv_kL_UserProfile[init_i].lv_userProfilePanel = c_invalidDialogControlId;
+        libAE8FC9D3_gv_kL_UserProfile[init_i].lv_closeButton = c_invalidDialogControlId;
         for (init_i1 = 0; init_i1 <= 7; init_i1 += 1) {
             libAE8FC9D3_gv_kL_UserProfile[init_i].lv_recentAchievementItem[init_i1] = c_invalidDialogControlId;
         }
@@ -180,6 +181,9 @@ void libAE8FC9D3_gf_InitializeAchievements () {
     // Variable Initialization
 
     // Implementation
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogGenericButton2, true);
+    UISetGameMenuItemShortcut(PlayerGroupAll(), c_gameMenuDialogGenericButton2, StringExternal("Param/Value/lib_AE8FC9D3_398D42C0"));
+    UISetGameMenuItemText(PlayerGroupAll(), c_gameMenuDialogGenericButton2, StringExternal("Param/Value/lib_AE8FC9D3_DB11110B"));
     auto79AB33C1_g = PlayerGroupActive();
     auto79AB33C1_var = -1;
     while (true) {
@@ -352,13 +356,24 @@ void libAE8FC9D3_gf_KL_BankSave (int lp_player, bool lp_update) {
 
 void libAE8FC9D3_gf_ShowHideUserProfile (bool lp_showHide, int lp_player) {
     // Automatic Variable Declarations
+    bool auto7BDDA038_val;
+
     // Implementation
     if ((libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_dialog == c_invalidDialogId)) {
         libAE8FC9D3_gf_KL_CreateUserProfilePanel(lp_player);
     }
 
     DialogSetVisible(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_dialog, PlayerGroupSingle(lp_player), lp_showHide);
-    libAE8FC9D3_gf_KL_UpdateUserProfile(1);
+    auto7BDDA038_val = lp_showHide;
+    if (auto7BDDA038_val == true) {
+        libAE8FC9D3_gf_KL_UpdateUserProfile(lp_player);
+        libAE8FC9D3_gv_kL_UserMenuActive[lp_player] = true;
+    }
+    else if (auto7BDDA038_val == false) {
+        libAE8FC9D3_gv_kL_UserMenuActive[lp_player] = false;
+    }
+    else {
+    }
 }
 
 string libAE8FC9D3_gf_KL_ReturnListID (int lp_list) {
@@ -721,6 +736,8 @@ void libAE8FC9D3_gf_KL_CreateUserProfilePanel (int lp_player) {
     libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_dialog = DialogLastCreated();
     DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypePanel, "KL_AchievementsDialog/AchievementsDialogTemplate");
     libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel = DialogControlLastCreated();
+    DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("CloseButton"));
+    libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_closeButton = DialogControlLastCreated();
     lv_index = 0;
     for ( ; ( (auto963741B6_ai >= 0 && lv_index <= auto963741B6_ae) || (auto963741B6_ai < 0 && lv_index >= auto963741B6_ae) ) ; lv_index += auto963741B6_ai ) {
         DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/RecentAchievementsListBox/AchievementItem" + IntToString(lv_index))));
@@ -1975,6 +1992,60 @@ void libAE8FC9D3_gf_KL_AchievementMenuData (int lp_player) {
 
 // Triggers
 //--------------------------------------------------------------------------------------------------
+// Trigger: PlyerOpensMenu
+//--------------------------------------------------------------------------------------------------
+bool libAE8FC9D3_gt_PlyerOpensMenu_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((libAE8FC9D3_gv_kL_UserMenuActive[EventPlayer()] != true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAE8FC9D3_gf_ShowHideUserProfile(true, EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAE8FC9D3_gt_PlyerOpensMenu_Init () {
+    libAE8FC9D3_gt_PlyerOpensMenu = TriggerCreate("libAE8FC9D3_gt_PlyerOpensMenu_Func");
+    TriggerAddEventGameMenuItemSelected(libAE8FC9D3_gt_PlyerOpensMenu, c_playerAny, c_gameMenuDialogGenericButton2);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: PlayerClosesMenu
+//--------------------------------------------------------------------------------------------------
+bool libAE8FC9D3_gt_PlayerClosesMenu_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((libAE8FC9D3_gv_kL_UserMenuActive[EventPlayer()] == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAE8FC9D3_gf_ShowHideUserProfile(false, EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAE8FC9D3_gt_PlayerClosesMenu_Init () {
+    libAE8FC9D3_gt_PlayerClosesMenu = TriggerCreate("libAE8FC9D3_gt_PlayerClosesMenu_Func");
+    TriggerAddEventDialogControl(libAE8FC9D3_gt_PlayerClosesMenu, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: KL_HideAchievementPanel)P1
 //--------------------------------------------------------------------------------------------------
 bool libAE8FC9D3_gt_KL_HideAchievementPanelP1_Func (bool testConds, bool runActions) {
@@ -2299,32 +2370,9 @@ void libAE8FC9D3_gt_KL_HideAchievementPanelP12_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Award Sample Achievement
+// Trigger: Attempt Initialization
 //--------------------------------------------------------------------------------------------------
-bool libAE8FC9D3_gt_DebugAwardSampleAchievement_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UIClearMessages(PlayerGroupAll(), c_messageAreaAll);
-    libAE8FC9D3_gf_AwardAchievement("Tins00 - Objectives", EventPlayer());
-    libAE8FC9D3_gf_AwardAchievement("Feat - No Damage", EventPlayer());
-    libAE8FC9D3_gf_AwardAchievement("TIns00 - Hard", EventPlayer());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libAE8FC9D3_gt_DebugAwardSampleAchievement_Init () {
-    libAE8FC9D3_gt_DebugAwardSampleAchievement = TriggerCreate("libAE8FC9D3_gt_DebugAwardSampleAchievement_Func");
-    TriggerAddEventChatMessage(libAE8FC9D3_gt_DebugAwardSampleAchievement, c_playerAny, "Achievement", true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Attempt Initialization
-//--------------------------------------------------------------------------------------------------
-bool libAE8FC9D3_gt_DebugAttemptInitialization_Func (bool testConds, bool runActions) {
+bool libAE8FC9D3_gt_AttemptInitialization_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Actions
     if (!runActions) {
@@ -2336,32 +2384,14 @@ bool libAE8FC9D3_gt_DebugAttemptInitialization_Func (bool testConds, bool runAct
 }
 
 //--------------------------------------------------------------------------------------------------
-void libAE8FC9D3_gt_DebugAttemptInitialization_Init () {
-    libAE8FC9D3_gt_DebugAttemptInitialization = TriggerCreate("libAE8FC9D3_gt_DebugAttemptInitialization_Func");
-    TriggerAddEventMapInit(libAE8FC9D3_gt_DebugAttemptInitialization);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Show UserProfile
-//--------------------------------------------------------------------------------------------------
-bool libAE8FC9D3_gt_DebugShowUserProfile_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libAE8FC9D3_gf_ShowHideUserProfile(true, 1);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libAE8FC9D3_gt_DebugShowUserProfile_Init () {
-    libAE8FC9D3_gt_DebugShowUserProfile = TriggerCreate("libAE8FC9D3_gt_DebugShowUserProfile_Func");
-    TriggerAddEventMapInit(libAE8FC9D3_gt_DebugShowUserProfile);
+void libAE8FC9D3_gt_AttemptInitialization_Init () {
+    libAE8FC9D3_gt_AttemptInitialization = TriggerCreate("libAE8FC9D3_gt_AttemptInitialization_Func");
+    TriggerAddEventMapInit(libAE8FC9D3_gt_AttemptInitialization);
 }
 
 void libAE8FC9D3_InitTriggers () {
+    libAE8FC9D3_gt_PlyerOpensMenu_Init();
+    libAE8FC9D3_gt_PlayerClosesMenu_Init();
     libAE8FC9D3_gt_KL_HideAchievementPanelP1_Init();
     libAE8FC9D3_gt_KL_HideAchievementPanelP2_Init();
     libAE8FC9D3_gt_KL_HideAchievementPanelP3_Init();
@@ -2374,9 +2404,7 @@ void libAE8FC9D3_InitTriggers () {
     libAE8FC9D3_gt_KL_HideAchievementPanelP10_Init();
     libAE8FC9D3_gt_KL_HideAchievementPanelP11_Init();
     libAE8FC9D3_gt_KL_HideAchievementPanelP12_Init();
-    libAE8FC9D3_gt_DebugAwardSampleAchievement_Init();
-    libAE8FC9D3_gt_DebugAttemptInitialization_Init();
-    libAE8FC9D3_gt_DebugShowUserProfile_Init();
+    libAE8FC9D3_gt_AttemptInitialization_Init();
 }
 
 //--------------------------------------------------------------------------------------------------
