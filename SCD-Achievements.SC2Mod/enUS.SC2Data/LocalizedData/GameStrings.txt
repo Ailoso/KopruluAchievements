@@ -1,0 +1,8 @@
+﻿DocInfo/DescLong=Achievements Mod for Parasite Zeta by Dimento<n/><n/>Created by @KopruluKatt
+DocInfo/Name=Parasite Achievements Mod
+Param/Expression/lib_AE8FC9D3_A7E39E49=Next Achievement: ~A~
+Param/Value/lib_AE8FC9D3_36AB12C8=DummyInfoFrame/AchievementTitle
+Param/Value/lib_AE8FC9D3_80F0E7E2=
+Param/Value/lib_AE8FC9D3_85182CB2=DummyInfoFrame/AchievementIcon
+Param/Value/lib_AE8FC9D3_B433625A=Saved
+Param/Value/lib_AE8FC9D3_E57BA842=Unverified

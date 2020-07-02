@@ -1,0 +1,4 @@
+﻿User/EditorPrefix/Achievements=Koprulu -
+User/EditorPrefix/Rewards=Koprulu -
+User/Name/Achievements=Achievements
+User/Name/Rewards=Rewards

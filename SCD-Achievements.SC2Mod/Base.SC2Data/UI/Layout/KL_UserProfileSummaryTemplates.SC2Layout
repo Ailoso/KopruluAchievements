@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>\
+
+    <!-- 
+    =============================
+    
+    STATS FRAME TEMPLATE
+    
+    =============================
+    -->
+
+    <Frame type="Frame" name="UserProfileSummaryStatsTemplate">
+        <Width val="400"/>
+
+        <Frame type="Label" name="CareerHeader">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+            <Style val="Profile_Summary_StatsHeader"/>
+            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+        </Frame>
+
+        <Frame type="Image" name="CareerDivider1" template="UserProfileSummaryStatsFrame/StatsDividerTemplate">
+            <Anchor side="Top" relative="$parent/CareerHeader" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/CareerHeader" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/CareerHeader" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="Label" name="CareerGames">
+            <Anchor side="Top" relative="$parent/CareerDivider1" pos="Max" offset="1"/>
+            <Anchor side="Left" relative="$parent/CareerDivider1" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/CareerGamesValue" pos="Min" offset="-10"/>
+            <Text val="Games Played"/>
+            <Style val="Profile_Summary_Standard"/>
+            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+        </Frame>
+        
+        <Frame type="Label" name="CareerGamesValue">
+            <Anchor side="Top" relative="$parent/CareerDivider1" pos="Max" offset="1"/>
+            <Anchor side="Right" relative="$parent/CareerDivider1" pos="Max" offset="-2"/>
+            <Style val="Profile_Summary_StatsValue"/>
+        </Frame>
+
+        <Frame type="Image" name="CareerDivider2" template="UserProfileSummaryStatsFrame/StatsDividerTemplate">
+            <Anchor side="Top" relative="$parent/CareerDivider1" pos="Max" offset="28"/>
+            <Anchor side="Left" relative="$parent/CareerHeader" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/CareerHeader" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="Label" name="RoleWins">
+            <Anchor side="Top" relative="$parent/CareerDivider2" pos="Max" offset="1"/>
+            <Anchor side="Left" relative="$parent/CareerDivider2" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/RoleWinsValue" pos="Min" offset="-10"/>
+            <Style val="Profile_Summary_Standard"/>
+            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+            <Text val="Wins"/>
+        </Frame>
+        
+        <Frame type="Label" name="RoleWinsValue">
+            <Anchor side="Top" relative="$parent/CareerDivider2" pos="Max" offset="1"/>
+            <Anchor side="Right" relative="$parent/CareerDivider2" pos="Max" offset="-2"/>
+            <Style val="Profile_Summary_StatsValue"/>
+        </Frame>
+
+        <Frame type="Image" name="CareerDivider3" template="UserProfileSummaryStatsFrame/StatsDividerTemplate">
+            <Anchor side="Top" relative="$parent/CareerDivider2" pos="Max" offset="28"/>
+            <Anchor side="Left" relative="$parent/CareerHeader" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/CareerHeader" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="Label" name="KillsHeader">
+            <Anchor side="Top" relative="$parent/CareerDivider3" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+            <Text val="Kills"/>
+            <Style val="Profile_Summary_StatsHeader"/>
+            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+        </Frame>
+
+        <Frame type="Image" name="KillsDivider1" template="UserProfileSummaryStatsFrame/StatsDividerTemplate">
+            <Anchor side="Top" relative="$parent/KillsHeader" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/KillsHeader" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/KillsHeader" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="Label" name="KillStat1">
+            <Anchor side="Top" relative="$parent/KillsDivider1" pos="Max" offset="1"/>
+            <Anchor side="Left" relative="$parent/KillsDivider1" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/KillStatValue1" pos="Min" offset="-10"/>
+            <Text val="Total Kills"/>
+            <Style val="Profile_Summary_Standard"/>
+            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+        </Frame>
+        
+        <Frame type="Label" name="KillStatValue1">
+            <Anchor side="Top" relative="$parent/KillsDivider1" pos="Max" offset="1"/>
+            <Anchor side="Right" relative="$parent/KillsDivider1" pos="Max" offset="-2"/>
+            <Style val="Profile_Summary_StatsValue"/>
+        </Frame>
+
+        <Frame type="Image" name="KillsDivider2" template="UserProfileSummaryStatsFrame/StatsDividerTemplate">
+            <Anchor side="Top" relative="$parent/KillsDivider1" pos="Max" offset="28"/>
+            <Anchor side="Left" relative="$parent/KillsHeader" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/KillsHeader" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="Label" name="KillsStat2">
+            <Anchor side="Top" relative="$parent/KillsDivider2" pos="Max" offset="1"/>
+            <Anchor side="Left" relative="$parent/KillsDivider2" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/KillsStatValue2" pos="Min" offset="-10"/>
+            <Style val="Profile_Summary_Standard"/>
+            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+        </Frame>
+        
+        <Frame type="Label" name="KillsStatValue2">
+            <Anchor side="Top" relative="$parent/KillsDivider2" pos="Max" offset="1"/>
+            <Anchor side="Right" relative="$parent/KillsDivider2" pos="Max" offset="-2"/>
+            <Style val="Profile_Summary_StatsValue"/>
+        </Frame>
+
+        <Frame type="Image" name="KillsDivider3" template="UserProfileSummaryStatsFrame/StatsDividerTemplate">
+            <Anchor side="Top" relative="$parent/KillsDivider2" pos="Max" offset="28"/>
+            <Anchor side="Left" relative="$parent/KillsHeader" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/KillsHeader" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="Label" name="KillsStat3">
+            <Anchor side="Top" relative="$parent/KillsDivider3" pos="Max" offset="1"/>
+            <Anchor side="Left" relative="$parent/KillsDivider3" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/KillsStatValue3" pos="Min" offset="-10"/>
+            <Style val="Profile_Summary_Standard"/>
+            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+        </Frame>
+        
+        <Frame type="Label" name="KillsStatValue3">
+            <Anchor side="Top" relative="$parent/KillsDivider3" pos="Max" offset="1"/>
+            <Anchor side="Right" relative="$parent/KillsDivider3" pos="Max" offset="-2"/>
+            <Style val="Profile_Summary_StatsValue"/>
+        </Frame>
+
+        <Frame type="Image" name="KillsDivider4" template="UserProfileSummaryStatsFrame/StatsDividerTemplate">
+            <Anchor side="Top" relative="$parent/KillsDivider3" pos="Max" offset="28"/>
+            <Anchor side="Left" relative="$parent/KillsHeader" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/KillsHeader" pos="Max" offset="-10"/>
+        </Frame>
+    </Frame>
+
+    <!-- 
+    =============================
+    
+    STATS DIVIDER TEMPLATE
+    
+    =============================
+    -->
+
+    <Frame type="Image" name="VerticalDividerTemplate">
+        <Anchor side="Top" relative="$parent/$parent/AnchorFrame" pos="Min" offset="86"/>
+        <Anchor side="Bottom" relative="$parent/$parent/AnchorFrame" pos="Max" offset="-16"/>
+        <Width val="2"/>
+        <Texture val="Assets/Textures/white.dds"/>
+        <Color val="69,120,167"/>
+        <Alpha val="77"/>
+    </Frame>
+
+    <!-- 
+    =============================
+    
+    CAREER STATS TEMPLATES
+    
+    =============================
+    -->
+
+    <Frame type="Frame" name="UserProfileSummaryStatsFrameTemplate">
+        <Frame type="Label" name="TitleLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="14"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-12"/>
+            <Text val="Career"/>
+            <Style val="Profile_Summary_Header"/>
+        </Frame>
+
+        <Frame type="Image" name="VerticalDivider1" template="KL_UserProfileSummaryTemplates/VerticalDividerTemplate">
+            <Anchor side="Left" relative="$parent/$parent/AnchorFrame" pos="Min" offset="200"/>
+        </Frame>
+
+        <Frame type="Frame" name="HumanStatsFrame" template="KL_UserProfileSummaryTemplates/UserProfileSummaryStatsTemplate">
+            <Anchor side="Top" relative="$parent/VerticalDivider1" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/VerticalDivider1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/VerticalDivider1" pos="Max" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+            <Frame type="Label" name="CareerHeader">
+                <Text val="Human Matches"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat2">
+                <Text val="Alien Kills"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat3">
+                <Text val="Evil Psion Kills"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="AlienStatsFrame" template="KL_UserProfileSummaryTemplates/UserProfileSummaryStatsTemplate">
+            <Anchor side="Top" relative="$parent/VerticalDivider1" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/VerticalDivider1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/VerticalDivider1" pos="Max" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+            <Frame type="Label" name="CareerHeader">
+                <Text val="Alien Matches"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat2">
+                <Text val="Human Kills"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat3">
+                <Text val="Infested Humans"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="PsionStatsFrame" template="KL_UserProfileSummaryTemplates/UserProfileSummaryStatsTemplate">
+            <Anchor side="Top" relative="$parent/VerticalDivider1" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/VerticalDivider1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/VerticalDivider1" pos="Max" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+            <Frame type="Label" name="CareerHeader">
+                <Text val="Psion Matches"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat2">
+                <Text val="Alien Kills"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat3">
+                <Text val="Android Kills"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="AndroidStatsFrame" template="KL_UserProfileSummaryTemplates/UserProfileSummaryStatsTemplate">
+            <Anchor side="Top" relative="$parent/VerticalDivider1" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/VerticalDivider1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/VerticalDivider1" pos="Max" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+            <Frame type="Label" name="CareerHeader">
+                <Text val="Android Matches"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat2">
+                <Text val="Human Kills"/>
+            </Frame>
+
+            <Frame type="Label" name="KillsStat3">
+                <Text val="Psion Kills"/>
+            </Frame>
+        </Frame>
+    </Frame>
+
+    <!-- 
+    =============================
+    
+    CAREER PANEL TEMPLATE
+    
+    =============================
+    -->
+
+    <Frame type="Frame" name="MatchStoryPanelTemplate" template="StandardBattlenetTemplates/BattlenetStandardContentContainerTemplate">
+        <Height val="470"/>
+
+        <Frame type="Frame" name="DividerAnchor">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="76"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+        </Frame>
+        
+        <Frame type="Frame" name="DividerTop">
+            <Visible val="False"/>
+        </Frame>
+        
+        <Frame type="Frame" name="DividerBottom">
+            <Visible val="False"/>
+        </Frame>
+        
+        <Frame type="Image" name="BottomGlow">
+            <Anchor side="Bottom" relative="$parent/Background" pos="Max" offset="-2"/>
+            <Anchor side="Left" relative="$parent/Background" pos="Min" offset="2"/>
+            <Anchor side="Right" relative="$parent/Background" pos="Max" offset="-2"/>
+            <Height val="216"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Summary_Container_BottomGlow"/>
+        </Frame>
+
+        <Frame type="TabControl" name="RoleTabControl">
+            <SelectedIndex val="0"/>
+
+            <TabListItem val="$parent/HumanButton"/>
+            <TabListItem val="$parent/AlienButton"/>
+            <TabListItem val="$parent/PsionButton"/>
+            <TabListItem val="$parent/AndroidButton"/>
+
+            <PanelListItem val="$parent/UserProfileSummaryStatsFrame/HumanStatsFrame"/>
+            <PanelListItem val="$parent/UserProfileSummaryStatsFrame/AlienStatsFrame"/>
+            <PanelListItem val="$parent/UserProfileSummaryStatsFrame/PsionStatsFrame"/>
+            <PanelListItem val="$parent/UserProfileSummaryStatsFrame/AndroidStatsFrame"/>
+        </Frame>
+
+        <Frame type="Button" name="HumanButton" template="StandardSmallButtonTemplates/StandardSmallTabButtonLeftTemplate">
+            <Anchor side="Top" relative="$parent/AlienButton" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/AlienButton" pos="Min" offset="21"/>
+            <Anchor side="Left" relative="$this/SizeLabel" pos="Min" offset="-15"/>
+            <Width val="0"/>
+            <Toggleable val="true"/>
+            <Text val="Human"/>
+
+            <Frame type="Label" name="SizeLabel">
+                <Anchor side="Top" relative="$parent/Label" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/Label" pos="Max" offset="0"/>
+                <AutoSizeClamps minWidth="110"/>
+                <Text val="{$parent/Label/@Text}"/>
+                <Style val="{$parent/Label/@Style}"/>
+                <Visible val="false"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Button" name="AlienButton" template="StandardSmallButtonTemplates/StandardSmallTabButtonMiddleTemplate">
+            <Anchor side="Top" relative="$parent/PsionButton" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/PsionButton" pos="Min" offset="21"/>
+            <Anchor side="Left" relative="$this/SizeLabel" pos="Min" offset="-25"/>
+            <Width val="0"/>
+            <Toggleable val="true"/>
+            <Text val="Alien"/>
+
+            <Frame type="Label" name="SizeLabel">
+                <Anchor side="Top" relative="$parent/Label" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/Label" pos="Max" offset="0"/>
+                <AutoSizeClamps minWidth="113"/>
+                <Text val="{$parent/Label/@Text}"/>
+                <Style val="{$parent/Label/@Style}"/>
+                <Visible val="false"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Button" name="PsionButton" template="StandardSmallButtonTemplates/StandardSmallTabButtonMiddleTemplate">
+            <Anchor side="Top" relative="$parent/AndroidButton" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/AndroidButton" pos="Min" offset="21"/>
+            <Anchor side="Left" relative="$this/SizeLabel" pos="Min" offset="-25"/>
+            <Width val="0"/>
+            <Toggleable val="true"/>
+            <Text val="Psion"/>
+
+            <Frame type="Label" name="SizeLabel">
+                <Anchor side="Top" relative="$parent/Label" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/Label" pos="Max" offset="0"/>
+                <AutoSizeClamps minWidth="113"/>
+                <Text val="{$parent/Label/@Text}"/>
+                <Style val="{$parent/Label/@Style}"/>
+                <Visible val="false"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Button" name="AndroidButton" template="StandardSmallButtonTemplates/StandardSmallTabButtonRightTemplate">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="Min" offset="15"/>
+            <Anchor side="Right" relative="$parent/AnchorFrame" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$this/SizeLabel" pos="Min" offset="-25"/>
+            <Width val="0"/>
+            <Toggleable val="true"/>
+            <Text val="Android"/>
+
+            <Frame type="Label" name="SizeLabel">
+                <Anchor side="Top" relative="$parent/Label" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/Label" pos="Max" offset="0"/>
+                <AutoSizeClamps minWidth="109"/>
+                <Text val="{$parent/Label/@Text}"/>
+                <Style val="{$parent/Label/@Style}"/>
+                <Visible val="false"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="UserProfileSummaryStatsFrame" template="KL_UserProfileSummaryTemplates/UserProfileSummaryStatsFrameTemplate">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/AnchorFrame" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/AnchorFrame" pos="Max" offset="0"/>
+        </Frame>
+
+        <!--
+        ===============================
+
+            Coming Soon Panel
+
+            Remove once fuly implemented
+
+        ===============================
+        -->
+
+        <Frame type="Image" name="FullscreenBlocker">
+            <Anchor relative="$parent/AnchorFrame"/>
+
+            <Color val="000000"/>
+            <AcceptsMouse val="True"/>
+        </Frame>
+
+        <Frame type="Label" name="ComingSoon">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+
+            <Style val="Profile_Summary_Header"/>
+            <Text val="Coming Soon"/>
+        </Frame>
+    </Frame>
+
+    <!-- 
+    =============================
+    
+    CHARACTER BACKGROUND TEMPLATE
+    
+    =============================
+    -->
+
+    <Frame type="Frame" name="CharacterBackgroundContainerTemplate">
+        <Height val="258"/>
+
+        <Frame type="Image" name="CharacterImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="3"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-3"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="3"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-3"/>
+        </Frame>
+        
+        <Frame type="Image" name="RightGradient">
+            <Anchor side="Top" relative="$parent/CharacterImage" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/CharacterImage" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/CharacterImage" pos="Max" offset="0"/>
+            <Width val="440"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Summary_Coop_GradientRight"/>
+            <Alpha val="179"/>
+        </Frame>
+        
+        <Frame type="Image" name="BottomLeftGradient">
+            <Anchor side="Bottom" relative="$parent/CharacterImage" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/CharacterImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Summary_Coop_GradientCorner"/>
+        </Frame>
+        
+        <!-- BORDER OUTER -->
+        <Frame type="Image" name="BorderOuter">
+            <Anchor relative="$parent"/>
+            <Texture val="@UI/Glues_Battlenet_PageAssets_GraphicListItem_Border_Outer"/>
+            <TextureType val="NineSlice"/>
+            <Color val="0,0,0"/>
+        </Frame>
+        
+        <!-- BORDER INNER -->
+        <Frame type="Image" name="BorderInner">
+            <Anchor relative="$parent"/>
+            <Texture val="@UI/Glues_Battlenet_PageAssets_GraphicListItem_Border_Inner"/>
+            <TextureType val="NineSlice"/>
+            <Color val="29,46,69"/>
+        </Frame>
+
+        <Frame type="Label" name="MostPlayedLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="197"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="19"/>
+            <Text val="@UI/ScreenUserProfile/SummaryCoop/LastPlayed"/>
+            <Style val="Profile_Summary_CoopMostPlayed"/>
+        </Frame>
+
+        <Frame type="Label" name="CharacterLabel">
+            <Anchor side="Top" relative="$parent/MostPlayedLabel" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent/MostPlayedLabel" pos="Min" offset="0"/>
+            <Style val="Profile_Summary_CoopCommander"/>
+            <Visible val="{$parent/MostPlayedLabel/@Visible}"/>
+        </Frame>
+
+        <!-- Add own Karma Indicator Frame
+        <Frame type="Frame" name="UserProfileSummaryCoopMasteryFrame" template="UserProfileSummaryCoopMasteryFrame/UserProfileSummaryCoopMasteryFrameTemplate">
+            <Anchor relative="$parent/CommanderBackgroundContainer"/>
+        </Frame>
+
+        <Frame type="Frame" name="UserProfileSummaryCoopMutatorFrame" template="UserProfileSummaryCoopMutatorFrame/UserProfileSummaryCoopMutatorFrameTemplate">
+            <Anchor relative="$parent/CommanderBackgroundContainer"/>
+        </Frame>
+        -->
+    
+        <!-- AspectRatioState-->
+        <StateGroup name="AspectRatioState">
+            <DefaultState val="Default"/>
+            
+            <State name="16x9">
+                <When type="StateGroup" frame="$GlueUI" AspectRatioState="16x9"/>
+                <Action type="SetProperty" frame="BorderOuter" Texture="@UI/Glues_Battlenet_PageAssets_GraphicListItem_Border_Outer_16x9"/>
+                <Action type="SetProperty" frame="BorderInner" Texture="@UI/Glues_Battlenet_PageAssets_GraphicListItem_Border_Inner_16x9"/>
+            </State>
+            
+            <State name="Default">
+                <Action type="SetProperty" frame="BorderOuter" Texture="@UI/Glues_Battlenet_PageAssets_GraphicListItem_Border_Outer"/>
+                <Action type="SetProperty" frame="BorderInner" Texture="@UI/Glues_Battlenet_PageAssets_GraphicListItem_Border_Inner"/>
+            </State>
+        </StateGroup>
+        
+        <StateGroup name="PlayedCharacterState">
+            <DefaultState val="Played"/>
+            
+            <State name="Played">
+                <Action type="SetProperty" frame="CharacterImage" Texture="Assets\Textures\admiraltestbanner.dds"/>
+                <Action type="SetProperty" frame="CharacterLabel" Text="Admiral"/>
+            </State>
+            
+            <State name="NonePlayed">
+                <Action type="SetProperty" frame="CharacterImage" Texture="@UI/SC2_UI_UserProfile_Summary_Commander_Empty"/>
+                <Action type="SetProperty" frame="CharacterLabel" Text="Character"/>
+            </State>
+        </StateGroup>
+    </Frame>
+
+    <!-- 
+    =============================
+    
+    LAST MATCH PANEL TEMPLATE
+    
+    =============================
+    -->
+
+    <Frame type="Frame" name="LastMatchPanelTemplate" template="StandardBattlenetTemplates/BattlenetStandardContentContainerTemplate">
+        <Height val="332"/>
+
+        <Frame type="Frame" name="DividerAnchor">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="76"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Visible val="False"/>
+        </Frame>
+        
+        <Frame type="Frame" name="DividerTop">
+            <Visible val="False"/>
+        </Frame>
+        
+        <Frame type="Frame" name="DividerBottom">
+            <Visible val="False"/>
+        </Frame>
+        
+        <Frame type="Frame" name="DividerLeft">
+            <Visible val="False"/>
+        </Frame>
+        
+        <Frame type="Frame" name="DividerRight">
+            <Visible val="False"/>
+        </Frame>
+
+        <Frame type="Frame" name="LastUsedCharacterFrame">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/AnchorFrame" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/AnchorFrame" pos="Max" offset="0"/>
+
+            <Frame type="Label" name="LastMatchHeaderLabel">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="9"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="14"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                <Text val="Last Match"/>
+                <Style val="Profile_Summary_Header"/>
+                <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
+            </Frame>
+
+            <Frame type="Frame" name="LastGameBackgroundContainer" template="KL_UserProfileSummaryTemplates/CharacterBackgroundContainerTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="44"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="14"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-14"/>
+            </Frame>
+        </Frame>
+
+        <!--
+        ===============================
+
+            Coming Soon Panel
+
+            Remove once fuly implemented
+
+        ===============================
+        -->
+
+        <Frame type="Image" name="FullscreenBlocker">
+            <Anchor relative="$parent/AnchorFrame"/>
+
+            <Color val="000000"/>
+            <AcceptsMouse val="True"/>
+        </Frame>
+
+        <Frame type="Label" name="ComingSoon">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/AnchorFrame" pos="Mid" offset="0"/>
+
+            <Style val="Profile_Summary_Header"/>
+            <Text val="Coming Soon"/>
+        </Frame>
+    </Frame>
+</Desc>
