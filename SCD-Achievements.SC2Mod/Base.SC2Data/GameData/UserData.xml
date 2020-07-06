@@ -39,121 +39,25 @@
             <Image Image="Assets\Textures\btn-ability-protoss-entomb.dds">
                 <Field Id="Icon"/>
             </Image>
-            <Int Int="5">
+            <Int Int="10">
                 <Field Id="Points"/>
             </Int>
             <Int Int="1">
                 <Field Id="Category"/>
             </Int>
-            <String String="Desc">
+            <String String="Achievement Description">
                 <Field Id="Description"/>
             </String>
-            <String String="Z">
+            <String String="TIns00">
                 <Field Id="ID"/>
             </String>
-            <String String="Title">
+            <String String="AchievementTitle">
                 <Field Id="Title"/>
             </String>
             <User Type="Rewards" Instance="[Default]">
                 <Field Id="RewardCache"/>
             </User>
         </Instances>
-        <Instances Id="Tins00 - Objectives">
-            <Image Image="Assets\Textures\btn-ability-terran-battlefieldawareness.dds">
-                <Field Id="Icon"/>
-            </Image>
-            <Int Int="10">
-                <Field Id="Points"/>
-            </Int>
-            <String String="Complete all mission objectives in the mission &quot;Equipment Training&quot;">
-                <Field Id="Description"/>
-            </String>
-            <String String="Tins00Eas">
-                <Field Id="ID"/>
-            </String>
-            <String String="Quality Assurance">
-                <Field Id="Title"/>
-            </String>
-            <String String="False">
-                <Field Id="IsSeriesStart"/>
-            </String>
-        </Instances>
-        <Instances Id="Tins00 - Normal">
-            <Image Image="Assets\Textures\nova coop_lvl 08_ghost academy and texhlab_nova-ghost.dds">
-                <Field Id="Icon"/>
-            </Image>
-            <Int Int="10">
-                <Field Id="Points"/>
-            </Int>
-            <String String="Finish the mission &quot;Equipment Training&quot;  without losing more than 50% of Kephren&apos;s maximum Health">
-                <Field Id="Description"/>
-            </String>
-            <String String="Tins00Med">
-                <Field Id="ID"/>
-            </String>
-            <String String="False">
-                <Field Id="IsSeriesStart"/>
-            </String>
-            <String String="Sneaky Ghosts">
-                <Field Id="Title"/>
-            </String>
-        </Instances>
-        <Instances Id="TIns00 - Hard">
-            <Image Image="Assets\Textures\btn-progression-hornerhan-6-mirabuildtime.dds">
-                <Field Id="Icon"/>
-            </Image>
-            <Int Int="15">
-                <Field Id="Points"/>
-            </Int>
-            <String String="Speedrunning">
-                <Field Id="Title"/>
-            </String>
-            <String String="Kill all enemy units and finish the mission &quot;Equipment Training&quot; under 7 minutes">
-                <Field Id="Description"/>
-            </String>
-            <String String="Tins00Hrd">
-                <Field Id="ID"/>
-            </String>
-        </Instances>
-        <Instances Id="Feat - No Damage">
-            <Image Image="Assets\Textures\btn-ability-terran-surfacetoairtargeting.dds">
-                <Field Id="Icon"/>
-            </Image>
-            <Int Int="5">
-                <Field Id="Category"/>
-            </Int>
-            <Int>
-                <Field Id="Points"/>
-            </Int>
-            <String String="Receive no damage while escaping the facility while Testing Equipment">
-                <Field Id="Description"/>
-            </String>
-            <String String="TF01">
-                <Field Id="ID"/>
-            </String>
-            <String String="False">
-                <Field Id="IsSeriesStart"/>
-            </String>
-            <String String="Can&apos;t Touch This">
-                <Field Id="Title"/>
-            </String>
-        </Instances>
-        <Instances Id="Untitled Instance 2">
-            <String String="Filler 2">
-                <Field Id="Title"/>
-            </String>
-        </Instances>
-        <Instances Id="Untitled Instance 3">
-            <String String="Filler 3">
-                <Field Id="Title"/>
-            </String>
-        </Instances>
-        <Instances Id="Untitled Instance 4">
-            <String String="Filler 4">
-                <Field Id="Title"/>
-            </String>
-        </Instances>
-        <Instances Id="Untitled Instance 5"/>
     </CUser>
     <CUser id="Rewards">
         <Fields>

@@ -1,7 +1,6 @@
 [User]
 id=Achievements
-path=Assets\Textures\.dds
-asset=btn-ability-protoss-entomb,btn-ability-terran-battlefieldawareness,btn-ability-terran-surfacetoairtargeting,btn-progression-hornerhan-6-mirabuildtime,nova coop_lvl 08_ghost academy and texhlab_nova-ghost
+asset=Assets\Textures\btn-ability-protoss-entomb.dds
 Actor=CommandUIHarnessAttackProtoss,CommandUIHarnessAttackTerran,CommandUIHarnessAttackZerg,CommandUIHarnessConfirmProtoss,CommandUIHarnessConfirmTerran,CommandUIHarnessConfirmZerg,CommandUIHarnessMoveProtoss,CommandUIHarnessMoveTerran,CommandUIHarnessMoveZerg,CommandUIHarnessRallyProtoss,CommandUIHarnessRallyTerran,CommandUIHarnessRallyZerg,TerrainMgr
 User=Rewards
 id=Rewards

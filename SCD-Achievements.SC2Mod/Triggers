@@ -4592,12 +4592,6 @@
                 <TypeElement Type="ParamDef" Library="AE8FC9D3" Id="DC378D4A"/>
                 <UserType Value="Achievements"/>
             </VariableType>
-            <Value Type="Param" Library="AE8FC9D3" Id="EA64449B"/>
-        </Element>
-        <Element Type="Param" Id="EA64449B">
-            <Value>Tins00 - Objectives</Value>
-            <ValueType Type="userinstance"/>
-            <ValueContext Value="Achievements"/>
         </Element>
         <Element Type="Variable" Id="753912A0">
             <VariableType>

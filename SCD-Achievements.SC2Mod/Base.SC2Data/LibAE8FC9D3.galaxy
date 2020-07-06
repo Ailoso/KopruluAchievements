@@ -643,7 +643,6 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player, int lp_category
     const int auto6B6FE193_ai = 1;
 
     // Variable Initialization
-    lv_achievementInstance = "Tins00 - Objectives";
     lv_dateValue = "";
 
     // Implementation
