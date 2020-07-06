@@ -1,7 +1,9 @@
 # Koprulu Achievements
 By the community, for the community.
 
-Achievements Beta 1
+Achievement libraries for Starcraft 2 Custom Maps that work completely independant from Starcraft 2 Achievements.
+
+Achievements Beta 2 (07-06-2020)
 Currently Supports:
 - Achievement Awarding Animations
 - Achievement Race Styles
@@ -9,26 +11,34 @@ Currently Supports:
 - Automatic data fetching and sorting
 - Support for up two 8 players
 - Recently Earned Achievement Display
+- Custom Button in the Game Menu, Hotkey (F11)
+- Game Pause
 
 ## How to Use the Libraries
 A new action "Award Achievement" will handle giving the player an achievement from UserTypes, bank saving and animation display.
-The function "Player Has Achievement" will allow the developer to check whether a player has earned or not a particular achievement
-The function "Return Player Bank" will allow the dev to get the bank of a specific player by using his integer index
 
-## How to Add the Mod
+The function "Player Has Achievement" will allow the developer to check whether a player has earned or not a particular achievement.
+
+The function "Return Player Bank" will allow the dev to get the bank of a specific player by using his integer index.
+
+In-game a new button in the Menu bar can be used to open the Panel but the hotkey (F11) can also be used
+
+
+
+## How to Install the Mod
 Feel free to ask any questions, request features or come say hi at https://discord.gg/45kseu or Chonky Kat#8186
 
 ###### Adding it to your map
 1. Add mod as dependency by going to File>Dependencies and finding the mod in your folder
 2. Add your desired Bank name to the preload list by going to Map>Preload Info and adding your bank name within the banks tab
-3. The scrip will handle achievement initialization and bank loads
+3. The scrip will handle achievement initialization and bank loads, in the case of the trigger not working the action "Initialize Achievements" must be added to the map initalization
 
 ###### Customizing the libraries
 
 1. Modifying the Bank Name
 By default the libraries use the name KLClassic but it can be easily changed within the mod by finding the constant variable "KL_AchievementSectionConstant" which can be located here.
 
-![Constant Location](https://i.imgur.com/yQwOoID.png)
+![Constant Location](https://i.imgur.com/C1FMHXA.png)
 
 2. Adding new Achievements
 New achievements can be added inside user types on a pre-existing template. You can find it in Data> User Types> Koprulu Achievements
@@ -42,6 +52,8 @@ The minimum required fields are:
 - Title
 The remaning fields are not in use at the moment.
 Achievements can be added in any order, but any that must be above a particular achievement within a category must be higher in the list.
+
+### It's recommended that achievements are added in your map, instead of the achievements mod.
 
 3. Adding new Achievement Categories
 Sample buttons are added by default but it can be customized to turn them into either normal or collapsible buttons according to your needs. Some text editing is required but once set up it will be mostly permanent, even through updates.
@@ -173,3 +185,17 @@ Lastly the "Summary" State within the "TabToggles" must get a new line added per
                 <!-- Any Parents of Subtabs should be toggled Off when pressing the Summary Button -->
                 <Action type="SetProperty" frame="$Tab01" Toggled="False"/>
 ```
+
+## Updating to a Newer Version
+
+If you're updating to a newer version of the libraries it isn't required to delete everything and start over, instead modular files are used that can be easily transfered over to the newer version, these files are contained in the following folders:
+
+SCD-Achievements.SC2Mod\Base.SC2Data\GameData\UserData.xml - Contains achievements, in the case that achievements were added here instead of the Map itself
+
+SCD-Achievements.SC2Mod\Base.SC2Data\UI\Layout\KL_DevPanels.SC2Layout - Contains Customized UI panels
+
+Backup these files before using the new mod version.
+
+Once the files are saved, the older version must be deleted, replaced with the new version and your backed up files transfered to their locations.
+
+Lastly, the Variable constant must be modified to the name of your bank.

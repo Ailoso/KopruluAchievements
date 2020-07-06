@@ -22,6 +22,7 @@
 
         <Frame type="Frame" name="ExtendedExperienceBG" template="StandardExtendedExperienceTemplates/StandardSizeExtendedExperienceTemplate">
             <RenderPriority val="#AchievementsDialogRenderPriority"/>
+            <Handle val="KLUserProfile"/>
             
             <!-- Hide the fullscreen blackout so that the menu bar can render above it, but below the background image -->
             <Frame type="Image" name="FullscreenBlackoutImage">
@@ -103,11 +104,11 @@
             <RenderPriority val="#AchievementsDialogRenderPriority"/>
         </Frame>
 
-        <Frame type="Button" name="CloseButton" template="StandardBattlenetTemplates/CloseButton">
+        <!--Frame type="Button" name="CloseButton" template="StandardBattlenetTemplates/CloseButton">
             <Anchor side="Top" relative="$parent/ExtendedExperienceBG/AnchorFrame" pos="Min" offset="11"/>
             <Anchor side="Right" relative="$parent/ExtendedExperienceBG/AnchorFrame" pos="Max" offset="-14"/>
             <ClickSound val="@UI_BnetDefaultClick"/>
             <RenderPriority val="530"/>
-        </Frame>
+        </Frame-->
     </Frame>
 </Desc>

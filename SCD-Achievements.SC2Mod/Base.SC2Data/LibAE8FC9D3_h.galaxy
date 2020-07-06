@@ -48,7 +48,7 @@ struct libAE8FC9D3_gs_KL_AchievementFanfarePanel {
 };
 
 struct libAE8FC9D3_gs_KL_UserProfile {
-    int lv_dialog;
+    int lv_gameMenuButton;
     int lv_userProfilePanel;
     int lv_closeButton;
     int[8] lv_recentAchievementItem;
@@ -92,7 +92,6 @@ struct libAE8FC9D3_gs_KL_AchievementListbox {
 
 // Variable Declarations
 int[libAE8FC9D3_gv_kL_MaxAvailableLists + 1] libAE8FC9D3_gv_kL_AchievementIndexing;
-bool[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_UserMenuActive;
 libAE8FC9D3_gs_KL_AchievementFanfarePanel[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_AchievementFanfarePanel;
 libAE8FC9D3_gs_KL_UserProfile[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_UserProfile;
 libAE8FC9D3_gs_KL_AchievementListbox[libAE8FC9D3_gv_kL_MaxPlayers + 1][21] libAE8FC9D3_gv_kL_AchievementListbox;
@@ -114,11 +113,17 @@ int[21] libAE8FC9D3_gv_kL_MaxActiveInstances;
 int libAE8FC9D3_gv_achievements;
 
 // Function Declarations
+void libAE8FC9D3_gf_ShowUserProfile (int lp_player);
 void libAE8FC9D3_gf_InitializeAchievements ();
+void libAE8FC9D3_gf_UpdateAchievementProgress (string lp_achievement, int lp_valueIncrease, int lp_player);
+void libAE8FC9D3_gf_AwardAchievement (string lp_achievement, int lp_player);
+bool libAE8FC9D3_gf_PlayerHasAchievement (int lp_player, string lp_achievement);
+bank libAE8FC9D3_gf_ReturnPlayerBank (int lp_player);
+void libAE8FC9D3_gf_KL_InitAchi ();
 void libAE8FC9D3_gf_KL_BankPreload (int lp_player);
 void libAE8FC9D3_gf_KL_BankLoad (int lp_Player);
 void libAE8FC9D3_gf_KL_BankSave (int lp_player, bool lp_update);
-void libAE8FC9D3_gf_ShowHideUserProfile (bool lp_showHide, int lp_player);
+void libAE8FC9D3_gf_KL_ToggleProfileDisplay (bool lp_showHide, int lp_player);
 string libAE8FC9D3_gf_KL_ReturnListID (int lp_list);
 string libAE8FC9D3_gf_KL_ReturnListbyID (string lp_listID);
 int libAE8FC9D3_gf_KL_ReturnListIndex (int lp_list);
@@ -136,14 +141,14 @@ void libAE8FC9D3_gf_KL_HookupProfileSummary (int lp_player);
 void libAE8FC9D3_gf_KL_HookupAchievementLists (int lp_player);
 void libAE8FC9D3_gf_KL_HookupSeriesFrames (int lp_player, int lp_index1, int lp_index2, int lp_index3, string lp_list);
 void libAE8FC9D3_gf_KL_HookupRewardFrames (int lp_player, int lp_index1, int lp_index2, int lp_index3, string lp_list);
-void libAE8FC9D3_gf_UpdateAchievementProgress (string lp_achievement, int lp_valueIncrease, int lp_player);
-void libAE8FC9D3_gf_AwardAchievement (string lp_achievement, int lp_player);
+void libAE8FC9D3_gf_KL_UpdateAchiProgress (string lp_achievement, int lp_valueIncrease, int lp_player);
+void libAE8FC9D3_gf_KL_AwardAchi (string lp_achievement, int lp_player);
 void libAE8FC9D3_gf_KL_StoreRecentAchievementID (int lp_player, string lp_achievement);
 void libAE8FC9D3_gf_KL_StoreAchievementKey (int lp_player, string lp_achievement);
 void libAE8FC9D3_gf_KL_DisplayAchievement (string lp_achievement, int lp_player);
 int libAE8FC9D3_gf_KL_ReturnAchievementProgress (int lp_player, string lp_achievement);
-bool libAE8FC9D3_gf_PlayerHasAchievement (int lp_player, string lp_achievement);
-bank libAE8FC9D3_gf_ReturnPlayerBank (int lp_player);
+bool libAE8FC9D3_gf_KL_PlayerAchievementState (int lp_player, string lp_achievement);
+bank libAE8FC9D3_gf_KL_ReturnPlayerBank (int lp_player);
 void libAE8FC9D3_gf_InitializeAchievementsOld ();
 void libAE8FC9D3_gf_KL_UpdateSummaryPanels (int lp_player, string lp_achievement);
 void libAE8FC9D3_gf_KL_SetAchievementPanelData (int lp_player, string lp_achievement, int lp_category, bool lp_displayLastEarned);
@@ -154,8 +159,8 @@ void libAE8FC9D3_gf_KL_UpdateAchievementPanelData (int lp_player);
 void libAE8FC9D3_gf_KL_AchievementMenuData (int lp_player);
 
 // Trigger Declarations
-trigger libAE8FC9D3_gt_PlyerOpensMenu;
-trigger libAE8FC9D3_gt_PlayerClosesMenu;
+trigger libAE8FC9D3_gt_AttemptInitialization;
+trigger libAE8FC9D3_gt_MenuBarOpenAchievements;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP1;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP2;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP3;
@@ -168,7 +173,6 @@ trigger libAE8FC9D3_gt_KL_HideAchievementPanelP9;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP10;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP11;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP12;
-trigger libAE8FC9D3_gt_AttemptInitialization;
 
 // Library Initialization
 void libAE8FC9D3_InitVariables ();
