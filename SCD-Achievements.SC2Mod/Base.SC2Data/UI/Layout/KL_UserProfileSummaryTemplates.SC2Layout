@@ -583,7 +583,7 @@
         ===============================
         -->
 
-        <Frame type="Image" name="FullscreenBlocker">
+        <!--Frame type="Image" name="FullscreenBlocker">
             <Anchor relative="$parent/AnchorFrame"/>
 
             <Color val="000000"/>
@@ -598,6 +598,6 @@
 
             <Style val="Profile_Summary_Header"/>
             <Text val="Coming Soon"/>
-        </Frame>
+        </Frame-->
     </Frame>
 </Desc>

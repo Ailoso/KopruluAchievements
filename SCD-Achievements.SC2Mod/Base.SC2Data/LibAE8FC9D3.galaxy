@@ -70,7 +70,7 @@ void libAE8FC9D3_InitVariables () {
         }
     }
     for (init_i = 0; init_i <= libAE8FC9D3_gv_kL_MaxPlayers; init_i += 1) {
-        for (init_j = 0; init_j <= 20; init_j += 1) {
+        for (init_j = 0; init_j <= libAE8FC9D3_gv_kL_MaxAvailableLists; init_j += 1) {
             libAE8FC9D3_gv_kL_AchievementListbox[init_i][init_j].lv_listboxFilter = c_invalidDialogControlId;
             libAE8FC9D3_gv_kL_AchievementListbox[init_i][init_j].lv_listboxCategoryPanel = c_invalidDialogControlId;
             libAE8FC9D3_gv_kL_AchievementListbox[init_i][init_j].lv_listboxCategoryProgress = c_invalidDialogControlId;
@@ -629,7 +629,7 @@ string libAE8FC9D3_gf_KL_ReturnDummyFramePath (int lp_type) {
     }
 }
 
-void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player, int lp_category) {
+void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player) {
     // Variable Declarations
     int lv_userI;
     int lv_categoryI;
@@ -662,6 +662,8 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player, int lp_category
         if ((UserDataGetInt("Achievements", lv_achievementInstance, "Points", 1) != 0)) {
             libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_pointsLabel[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], IntToText(UserDataGetInt("Achievements", lv_achievementInstance, "Points", 1)), PlayerGroupSingle(lp_player));
             DialogControlSetVisible(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_pointsLabel[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], PlayerGroupAll(), true);
+            libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgressMax += UserDataGetInt("Achievements", lv_achievementInstance, "Points", 1);
+            libNtve_gf_SetDialogItemMaximumValue(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgress, libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgressMax, PlayerGroupSingle(lp_player));
         }
 
         libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)].lv_description[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], StringToText(UserDataGetString("Achievements", lv_achievementInstance, "Description", 1)), PlayerGroupSingle(lp_player));
@@ -669,6 +671,8 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player, int lp_category
         libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)].lv_completionLabel[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], StringToText(lv_dateValue), PlayerGroupSingle(lp_player));
         if ((libAE8FC9D3_gf_PlayerHasAchievement(lp_player, lv_achievementInstance) == true)) {
             DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_achievementItems[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], PlayerGroupSingle(lp_player), "EarnedState", "Earned");
+            libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgressCurrent += UserDataGetInt("Achievements", lv_achievementInstance, "Points", 1);
+            libNtve_gf_SetDialogItemCurrentValue(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgress, libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgressCurrent, PlayerGroupSingle(lp_player));
         }
         else {
             DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_achievementItems[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], PlayerGroupSingle(lp_player), "EarnedState", "NotEarned");
@@ -681,7 +685,7 @@ void libAE8FC9D3_gf_KL_UpdateUserProfile (int lp_player) {
     // Automatic Variable Declarations
     // Implementation
     libAE8FC9D3_gf_KL_UpdateRecentAchievements(lp_player);
-    libAE8FC9D3_gf_KL_UpdateAchievementItemData(lp_player, libAE8FC9D3_ge_KL_AchievementCategories_NoCategory);
+    libAE8FC9D3_gf_KL_UpdateAchievementItemData(lp_player);
 }
 
 void libAE8FC9D3_gf_KL_UpdateRecentAchievements (int lp_player) {
@@ -748,6 +752,8 @@ void libAE8FC9D3_gf_KL_CreateUserProfilePanel (int lp_player) {
     // Automatic Variable Declarations
     const int auto963741B6_ae = 7;
     const int auto963741B6_ai = 1;
+    const int auto9CF1BF8C_ae = 5;
+    const int auto9CF1BF8C_ai = 1;
 
     // Variable Initialization
     lv_messageLog = c_invalidDialogControlId;
@@ -774,6 +780,11 @@ void libAE8FC9D3_gf_KL_CreateUserProfilePanel (int lp_player) {
         libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_recentItemPoints[lv_index] = DialogControlLastCreated();
         DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_recentAchievementItem[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(libAE8FC9D3_gf_KL_ReturnDummyFramePath(libAE8FC9D3_ge_KL_DummyFrameType_Date)));
         libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_recentItemDate[lv_index] = DialogControlLastCreated();
+    }
+    lv_index = 1;
+    for ( ; ( (auto9CF1BF8C_ai >= 0 && lv_index <= auto9CF1BF8C_ae) || (auto9CF1BF8C_ai < 0 && lv_index >= auto9CF1BF8C_ae) ) ; lv_index += auto9CF1BF8C_ai ) {
+        DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeProgressBar, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/AchievementListbox" + IntToString(lv_index) + "/CategoryPointsFrame/CategoryProgressBar")));
+        libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_index].lv_listboxCategoryProgress = DialogControlLastCreated();
     }
     libAE8FC9D3_gf_KL_UpdateUserProfile(lp_player);
 }
@@ -2006,26 +2017,6 @@ void libAE8FC9D3_gf_KL_AchievementMenuData (int lp_player) {
 
 // Triggers
 //--------------------------------------------------------------------------------------------------
-// Trigger: Attempt Initialization
-//--------------------------------------------------------------------------------------------------
-bool libAE8FC9D3_gt_AttemptInitialization_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libAE8FC9D3_gf_InitializeAchievements();
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libAE8FC9D3_gt_AttemptInitialization_Init () {
-    libAE8FC9D3_gt_AttemptInitialization = TriggerCreate("libAE8FC9D3_gt_AttemptInitialization_Func");
-    TriggerAddEventMapInit(libAE8FC9D3_gt_AttemptInitialization);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: MenuBarOpenAchievements
 //--------------------------------------------------------------------------------------------------
 bool libAE8FC9D3_gt_MenuBarOpenAchievements_Func (bool testConds, bool runActions) {
@@ -2377,7 +2368,6 @@ void libAE8FC9D3_gt_KL_HideAchievementPanelP12_Init () {
 }
 
 void libAE8FC9D3_InitTriggers () {
-    libAE8FC9D3_gt_AttemptInitialization_Init();
     libAE8FC9D3_gt_MenuBarOpenAchievements_Init();
     libAE8FC9D3_gt_KL_HideAchievementPanelP1_Init();
     libAE8FC9D3_gt_KL_HideAchievementPanelP2_Init();

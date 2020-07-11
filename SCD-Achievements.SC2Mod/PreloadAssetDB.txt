@@ -1,6 +1,7 @@
 [User]
 id=Achievements
-asset=Assets\Textures\btn-ability-protoss-entomb.dds
+path=Assets\Textures\.dds
+asset=btn-ability-protoss-energize,btn-ability-protoss-entomb,btn-ability-protoss-phaseshift2,decal_terran_0057_01,decal_terran_0058_01
 Actor=CommandUIHarnessAttackProtoss,CommandUIHarnessAttackTerran,CommandUIHarnessAttackZerg,CommandUIHarnessConfirmProtoss,CommandUIHarnessConfirmTerran,CommandUIHarnessConfirmZerg,CommandUIHarnessMoveProtoss,CommandUIHarnessMoveTerran,CommandUIHarnessMoveZerg,CommandUIHarnessRallyProtoss,CommandUIHarnessRallyTerran,CommandUIHarnessRallyZerg,TerrainMgr
 User=Rewards
 id=Rewards

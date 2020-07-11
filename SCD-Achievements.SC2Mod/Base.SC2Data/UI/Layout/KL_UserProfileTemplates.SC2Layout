@@ -524,11 +524,11 @@
             <DefaultState val="Collapsed"/>
             
             <State name="Expanded">
-                <Action type="SetProperty" frame="$this/Arrow" rotation="270"/>
+                <Action type="SetProperty" frame="Arrow" rotation="270"/>
             </State>
             
             <State name="Collapsed">
-                <Action type="SetProperty" frame="$this/Arrow" Rotation="180"/>
+                <Action type="SetProperty" frame="Arrow" Rotation="180"/>
             </State>
 
         </StateGroup>

@@ -33,9 +33,9 @@ const int libAE8FC9D3_ge_KL_DummyFrameType_Date = 0x00000010;
 
 // Constants
 const string libAE8FC9D3_gv_kL_AchievementSectionConstant = "KLClassic";
-const int libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots = 20;
-const int libAE8FC9D3_gv_kL_MaxAvailableLists = 7;
 const int libAE8FC9D3_gv_kL_MaxPlayers = 16;
+const int libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots = 20;
+const int libAE8FC9D3_gv_kL_MaxAvailableLists = 10;
 
 // Structures
 struct libAE8FC9D3_gs_KL_AchievementFanfarePanel {
@@ -94,7 +94,7 @@ struct libAE8FC9D3_gs_KL_AchievementListbox {
 int[libAE8FC9D3_gv_kL_MaxAvailableLists + 1] libAE8FC9D3_gv_kL_AchievementIndexing;
 libAE8FC9D3_gs_KL_AchievementFanfarePanel[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_AchievementFanfarePanel;
 libAE8FC9D3_gs_KL_UserProfile[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_UserProfile;
-libAE8FC9D3_gs_KL_AchievementListbox[libAE8FC9D3_gv_kL_MaxPlayers + 1][21] libAE8FC9D3_gv_kL_AchievementListbox;
+libAE8FC9D3_gs_KL_AchievementListbox[libAE8FC9D3_gv_kL_MaxPlayers + 1][libAE8FC9D3_gv_kL_MaxAvailableLists + 1] libAE8FC9D3_gv_kL_AchievementListbox;
 bank libAE8FC9D3_gv_KL_SharedBankP1;
 bank libAE8FC9D3_gv_KL_SharedBankP2;
 bank libAE8FC9D3_gv_KL_SharedBankP3;
@@ -131,7 +131,7 @@ bool libAE8FC9D3_gf_KL_ReturnRecentAchievement (int lp_player, int lp_slot, stri
 string libAE8FC9D3_gf_KL_ReturnAchievementFromID (int lp_player, int lp_slot);
 int libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement (int lp_index);
 string libAE8FC9D3_gf_KL_ReturnDummyFramePath (int lp_type);
-void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player, int lp_category);
+void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player);
 void libAE8FC9D3_gf_KL_UpdateUserProfile (int lp_player);
 void libAE8FC9D3_gf_KL_UpdateRecentAchievements (int lp_player);
 void libAE8FC9D3_gf_KL_HookupFanfarePanels (int lp_player);
@@ -159,7 +159,6 @@ void libAE8FC9D3_gf_KL_UpdateAchievementPanelData (int lp_player);
 void libAE8FC9D3_gf_KL_AchievementMenuData (int lp_player);
 
 // Trigger Declarations
-trigger libAE8FC9D3_gt_AttemptInitialization;
 trigger libAE8FC9D3_gt_MenuBarOpenAchievements;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP1;
 trigger libAE8FC9D3_gt_KL_HideAchievementPanelP2;

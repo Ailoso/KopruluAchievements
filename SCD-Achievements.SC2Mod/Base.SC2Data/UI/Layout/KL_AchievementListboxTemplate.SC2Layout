@@ -57,17 +57,11 @@
             ========================
         -->
 
-        <!--Frame type="Frame" name="CategoryPointsFrame" template="KL_UserProfileAchievementsFrame/CategoryPointsFrameTemplate">
+        <Frame type="Frame" name="CategoryPointsFrame" template="KL_UserProfileAchievementsFrame/CategoryPointsFrameTemplate">
             <Anchor side="Top" relative="$parent/$parent/BackgroundAnchor" pos="Min" offset="4"/>
             <Anchor side="Right" relative="$parent/ListBoxBackground" pos="Max" offset="-30"/>
             <Visible val="True"/>
-    
-            <StateGroup name="CategoryStateGroup">
-                <State name="CategoryState">
-                    <Action type="SetProperty" Visible="true"/>
-                </State>
-            </StateGroup>
-        </Frame-->
+        </Frame>
 
         <Frame type="ScrollableFrame" name="ScrollableFrame">
             <Anchor side="Top" relative="$parent/ListBoxBackground" pos="Min" offset="80"/>

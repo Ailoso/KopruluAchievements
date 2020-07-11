@@ -132,7 +132,7 @@
     <Frame type="Frame" name="CategoryPointsFrameTemplate">
         <Anchor side="Bottom" relative="$this/AvatarFrame" pos="Max" offset="0"/>
         <Width val="200"/>
-        <Visible val="False"/>
+        <Visible val="True"/>
 
         <Frame type="Frame" name="AvatarFrame" template="StandardTemplates/AvatarFrameBaseTemplate">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -174,7 +174,7 @@
             </Frame>
         </Frame>
 
-        <StateGroup name="UserState">
+        <!--StateGroup name="UserState">
             <DefaultState val="Remote"/>
             
             <State name="Local">
@@ -186,7 +186,7 @@
                 <Action type="SetProperty" frame="AvatarFrame" Visible="False"/>
                 <Action type="SetProperty" frame="NameLabel" Visible="False"/>
             </State>
-        </StateGroup>
+        </StateGroup-->
     </Frame>
 
 
