@@ -11,7 +11,7 @@
         <Height val="36"/>
         <DisplayType val="ImageLayer"/>
         <ClickSound val="@UI_ActionButtonSelect"/>
-        <RenderPriority val="9999"/>
+
 
         <Frame type="Image" name="NormalImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -67,6 +67,7 @@
     </Frame>
     
     <Frame type="MenuBar" name="GameUI/UIContainer/FullscreenUpperContainer/MenuBar" file="GameUI">
+        <RenderPriority val="199"/>
 
         <Frame type="Button" name="AchievementButton" template="GameUI_Koprulu/MenuBarAchievementButtonTemplate">
             <Anchor side="Left" relative="$parent/MenuBarBackgroundImage" pos="Min" offset="11"/>
@@ -103,9 +104,9 @@
         </Frame>
 
 
-
         <Frame type="Frame" name="BackgroundFrame">
             <RenderPriority val="530"/>
+
             <Frame type="Button" name="CloseButton">
                 <Anchor side="Bottom" relative="$KLUserProfile/AnchorFrame" pos="Min" offset="40"/>
                 <Anchor side="Right" relative="$KLUserProfile/AnchorFrame" pos="Max" offset="-5"/>
@@ -252,6 +253,7 @@
             </Frame>
 
             <Frame type="HelpPanel" name="MessageLogPanel">
+                <Visible val="False"/>
                 <Alpha val="0"/>
             </Frame>
         </Frame>

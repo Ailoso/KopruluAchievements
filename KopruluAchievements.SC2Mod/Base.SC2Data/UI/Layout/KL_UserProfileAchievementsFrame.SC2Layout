@@ -1134,7 +1134,9 @@
     The main expandable achievement frame displayed in the profile
     -->
 
-    <Frame type="Button" name="FrameTemplate">
+    <Frame type="Button" name="AchievementFrameTemplate">
+
+
         <CollapseLayout val="True"/>
         <Anchor side="Bottom" relative="$this/BottomBufferFrame" pos="Max" offset="0"/>
         
@@ -1346,7 +1348,7 @@
         </Frame>
         
         <StateGroup name="DisplayContentState">
-            <DefaultState val="NoContent"/>
+            <DefaultState val="HasContent"/>
             
             <State name="NoContent">
                 <When type="AnimationState" frame="$parent" DisplayContentState="NoContent"/>
@@ -1444,11 +1446,11 @@
         <CollapseLayout val="True"/>
         <Visible val="False"/>
 
-        <Frame type="Frame" name="HitTestFrame">
-            <Anchor relative="$parent/AchievementFrame"/>
-        </Frame>
+        <!--Frame type="Frame" name="HitTestFrame">
+            <Anchor relative="$parent"/>
+        </Frame-->
 
-        <Frame type="Frame" name="AchievementFrame" template="KL_UserProfileAchievementsFrame/FrameTemplate">
+        <Frame type="Frame" name="AchievementFrame" template="KL_UserProfileAchievementsFrame/AchievementFrameTemplate">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Width val="810"/>

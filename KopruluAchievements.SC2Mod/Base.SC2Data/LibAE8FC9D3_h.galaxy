@@ -138,6 +138,7 @@ void libAE8FC9D3_gf_KL_UpdateRecentAchievements (int lp_player);
 void libAE8FC9D3_gf_KL_HookupFanfarePanels (int lp_player);
 void libAE8FC9D3_gf_KL_CreateUserProfilePanel (int lp_player);
 void libAE8FC9D3_gf_KL_HoDItemInListbox (int lp_player, int lp_listBox, int lp_achievementItem);
+void libAE8FC9D3_gf_KL_HoDSeriesPanels (int lp_player, int lp_listBox, int lp_achievementItem);
 void libAE8FC9D3_gf_KL_HookupProfileSummary (int lp_player);
 void libAE8FC9D3_gf_KL_HookupAchievementLists (int lp_player);
 void libAE8FC9D3_gf_KL_HookupSeriesFrames (int lp_player, int lp_index1, int lp_index2, int lp_index3, string lp_list);

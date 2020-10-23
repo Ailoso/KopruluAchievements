@@ -689,7 +689,6 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player) {
         else {
             DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_achievementItems[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], PlayerGroupSingle(lp_player), "EarnedState", "NotEarned");
         }
-        DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_achievementItems[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], PlayerGroupSingle(lp_player), "DisplayContentState", "NoContent");
     }
 }
 
@@ -805,6 +804,32 @@ void libAE8FC9D3_gf_KL_HoDItemInListbox (int lp_player, int lp_listBox, int lp_a
     // Automatic Variable Declarations
     // Implementation
     if ((libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem] != c_invalidDialogControlId)) {
+        return ;
+    }
+
+    DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/AchievementListbox" + IntToString(lp_listBox) + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lp_achievementItem))));
+    libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem] = DialogControlLastCreated();
+    DialogControlHookup(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementFrame/" + libAE8FC9D3_gf_KL_ReturnDummyFramePath(libAE8FC9D3_ge_KL_DummyFrameType_Icon))));
+    libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_icon[lp_achievementItem] = DialogControlLastCreated();
+    DialogControlHookup(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementFrame/" + libAE8FC9D3_gf_KL_ReturnDummyFramePath(libAE8FC9D3_ge_KL_DummyFrameType_Title))));
+    libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_title[lp_achievementItem] = DialogControlLastCreated();
+    DialogControlHookup(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementFrame/" + libAE8FC9D3_gf_KL_ReturnDummyFramePath(libAE8FC9D3_ge_KL_DummyFrameType_Points))));
+    libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_pointsLabel[lp_achievementItem] = DialogControlLastCreated();
+    DialogControlHookup(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementFrame/" + libAE8FC9D3_gf_KL_ReturnDummyFramePath(libAE8FC9D3_ge_KL_DummyFrameType_Description))));
+    libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_description[lp_achievementItem] = DialogControlLastCreated();
+    DialogControlHookup(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementFrame/" + libAE8FC9D3_gf_KL_ReturnDummyFramePath(libAE8FC9D3_ge_KL_DummyFrameType_Date))));
+    libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_completionLabel[lp_achievementItem] = DialogControlLastCreated();
+    DialogControlSetVisible(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], PlayerGroupAll(), true);
+}
+
+void libAE8FC9D3_gf_KL_HoDSeriesPanels (int lp_player, int lp_listBox, int lp_achievementItem) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem] == c_invalidDialogControlId)) {
+        return ;
+    }
+
+    if ((libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem] == c_invalidDialogControlId)) {
         return ;
     }
 
