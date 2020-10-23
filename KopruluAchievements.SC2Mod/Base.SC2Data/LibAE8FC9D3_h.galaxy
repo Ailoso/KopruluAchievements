@@ -32,7 +32,7 @@ const int libAE8FC9D3_ge_KL_DummyFrameType_Points = 0x00000008;
 const int libAE8FC9D3_ge_KL_DummyFrameType_Date = 0x00000010;
 
 // Constants
-const string libAE8FC9D3_gv_kL_AchievementSectionConstant = "KLClassic";
+const string libAE8FC9D3_gv_kL_AchievementSectionConstant = "ReelCraftTest";
 const int libAE8FC9D3_gv_kL_MaxPlayers = 16;
 const int libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots = 20;
 const int libAE8FC9D3_gv_kL_MaxAvailableLists = 10;
@@ -71,6 +71,7 @@ struct libAE8FC9D3_gs_KL_AchievementListbox {
     int[libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots + 1] lv_icon;
     int[libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots + 1] lv_pointsLabel;
     int[libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots + 1] lv_completionLabel;
+    int[libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots + 1] lv_expandedFrame;
     int[libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots + 1][20] lv_seriesFrames;
     int[libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots + 1][20] lv_seriesDummyIcon;
     int[libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots + 1][20] lv_seriesDummyTitle;

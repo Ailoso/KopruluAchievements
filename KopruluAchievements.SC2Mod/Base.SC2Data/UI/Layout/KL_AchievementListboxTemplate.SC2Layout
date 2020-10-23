@@ -101,7 +101,7 @@
                     <TabListItem val="$parent/AchievementSlot19"/>
 
 
-                    <SelectedIndex val="16"/>
+                    <SelectedIndex val="20"/>
                 </Frame>
 
                 <Frame type="Button" name="AchievementSlot1" template="KL_UserProfileAchievementsFrame/AchievementsListBoxItemTemplate">

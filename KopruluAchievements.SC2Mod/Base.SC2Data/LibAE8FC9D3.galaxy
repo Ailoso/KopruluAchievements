@@ -93,6 +93,9 @@ void libAE8FC9D3_InitVariables () {
                 libAE8FC9D3_gv_kL_AchievementListbox[init_i][init_j].lv_completionLabel[init_i1] = c_invalidDialogControlId;
             }
             for (init_i1 = 0; init_i1 <= libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots; init_i1 += 1) {
+                libAE8FC9D3_gv_kL_AchievementListbox[init_i][init_j].lv_expandedFrame[init_i1] = c_invalidDialogControlId;
+            }
+            for (init_i1 = 0; init_i1 <= libAE8FC9D3_gv_kL_MaxAvailableAchievementSlots; init_i1 += 1) {
                 for (init_j1 = 0; init_j1 <= 19; init_j1 += 1) {
                     libAE8FC9D3_gv_kL_AchievementListbox[init_i][init_j].lv_seriesFrames[init_i1][init_j1] = c_invalidDialogControlId;
                 }
@@ -288,7 +291,7 @@ void libAE8FC9D3_gf_KL_BankLoad (int lp_Player) {
     // Implementation
     libAE8FC9D3_gf_KL_BankPreload(lp_Player);
     if ((lp_Player == 1)) {
-        BankLoad("KLClassic", 1);
+        BankLoad(libAE8FC9D3_gv_kL_AchievementSectionConstant, 1);
         libAE8FC9D3_gv_KL_SharedBankP1 = BankLastCreated();
         BankOptionSet(libAE8FC9D3_gv_KL_SharedBankP1, c_bankOptionSignature, true);
     }
@@ -637,6 +640,8 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player) {
     string lv_dateValue;
 
     // Automatic Variable Declarations
+    int auto011A08E4_ae;
+    const int auto011A08E4_ai = 1;
     const int auto28A27081_ae = libAE8FC9D3_gv_kL_MaxAvailableLists;
     const int auto28A27081_ai = 1;
     int auto6B6FE193_ae;
@@ -646,6 +651,13 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player) {
     lv_dateValue = "";
 
     // Implementation
+    auto011A08E4_ae = UserDataInstanceCount("Achievements");
+    lv_userI = 1;
+    for ( ; ( (auto011A08E4_ai >= 0 && lv_userI <= auto011A08E4_ae) || (auto011A08E4_ai < 0 && lv_userI >= auto011A08E4_ae) ) ; lv_userI += auto011A08E4_ai ) {
+        lv_categoryI = libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI);
+        libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgressCurrent = 0;
+        libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lv_categoryI].lv_listboxCategoryProgressMax = 0;
+    }
     lv_userI = 1;
     for ( ; ( (auto28A27081_ai >= 0 && lv_userI <= auto28A27081_ae) || (auto28A27081_ai < 0 && lv_userI >= auto28A27081_ae) ) ; lv_userI += auto28A27081_ai ) {
         libAE8FC9D3_gv_kL_AchievementIndexing[lv_userI] = 0;
@@ -809,6 +821,10 @@ void libAE8FC9D3_gf_KL_HoDItemInListbox (int lp_player, int lp_listBox, int lp_a
     DialogControlHookup(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementFrame/" + libAE8FC9D3_gf_KL_ReturnDummyFramePath(libAE8FC9D3_ge_KL_DummyFrameType_Date))));
     libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_completionLabel[lp_achievementItem] = DialogControlLastCreated();
     DialogControlSetVisible(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], PlayerGroupAll(), true);
+    DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][lp_listBox].lv_achievementItems[lp_achievementItem], PlayerGroupSingle(lp_player), "DisplayContentState", "HasContent");
+    if (true) {
+    }
+
 }
 
 void libAE8FC9D3_gf_KL_HookupProfileSummary (int lp_player) {
@@ -1285,6 +1301,7 @@ bool auto_libAE8FC9D3_gf_KL_StoreAchievementKey_TriggerFunc (bool testConds, boo
     lv_convertedDate = (lv_dateDay + "/" + lv_dateMonth + "/" + lv_dateYear);
     BankValueSetFromString(libAE8FC9D3_gf_ReturnPlayerBank(lp_player), libAE8FC9D3_gv_kL_AchievementSectionConstant, (UserDataGetString("Achievements", lp_achievement, "ID", 1) + "Date"), lv_convertedDate);
     libAE8FC9D3_gf_KL_StoreRecentAchievementID(lp_player, lp_achievement);
+    libAE8FC9D3_gf_KL_BankSave(lp_player, true);
     return true;
 }
 
@@ -1601,7 +1618,7 @@ void libAE8FC9D3_gf_KL_CheckAchievementSeries (int lp_player, string lp_achievem
     for ( ; ( (autoFE7C5183_ai >= 0 && lv_index <= autoFE7C5183_ae) || (autoFE7C5183_ai < 0 && lv_index >= autoFE7C5183_ae) ) ; lv_index += autoFE7C5183_ai ) {
         lv_slotConversion += 1;
         lv_lastAchievement = lv_nextAchievement;
-        lv_nextAchievement = UserDataGetUserInstance("Achievements", lp_achievement, "Achievement Series", lv_slotConversion);
+        lv_nextAchievement = UserDataGetUserInstance("Achievements", lp_achievement, "Series", lv_slotConversion);
         if ((lv_nextAchievement == null)) {
             return ;
         }

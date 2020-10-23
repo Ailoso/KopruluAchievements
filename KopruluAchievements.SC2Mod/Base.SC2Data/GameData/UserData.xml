@@ -20,10 +20,10 @@
             <EditorColumn value="7"/>
         </Fields>
         <Fields>
-            <Id value="Achievement Series"/>
+            <Id value="Series"/>
             <Type value="User"/>
             <UserType value="Achievements"/>
-            <Count value="19"/>
+            <Count value="10"/>
             <EditorColumn value="8"/>
         </Fields>
         <Fields Id="Required Count" Type="Int" EditorColumn="9"/>

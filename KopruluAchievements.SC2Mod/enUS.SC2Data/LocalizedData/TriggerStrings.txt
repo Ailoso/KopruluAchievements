@@ -302,6 +302,7 @@ Variable/Name/lib_AE8FC9D3_95659007=Player
 Variable/Name/lib_AE8FC9D3_95E41CB4=MaxAchievements
 Variable/Name/lib_AE8FC9D3_99060953=ID
 Variable/Name/lib_AE8FC9D3_9CF4A887=Index3
+Variable/Name/lib_AE8FC9D3_9DB1905B=ExpandedFrame
 Variable/Name/lib_AE8FC9D3_9E645A0E=ListboxFilter
 Variable/Name/lib_AE8FC9D3_9E655685=Player
 Variable/Name/lib_AE8FC9D3_9F406890=SeriesDummyDescription

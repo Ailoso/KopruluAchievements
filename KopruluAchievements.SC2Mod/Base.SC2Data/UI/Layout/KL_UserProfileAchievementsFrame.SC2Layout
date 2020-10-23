@@ -1346,7 +1346,7 @@
         </Frame>
         
         <StateGroup name="DisplayContentState">
-            <DefaultState val="HasContent"/>
+            <DefaultState val="NoContent"/>
             
             <State name="NoContent">
                 <When type="AnimationState" frame="$parent" DisplayContentState="NoContent"/>
