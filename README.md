@@ -3,15 +3,16 @@ By the community, for the community.
 
 Achievement libraries for Starcraft 2 Custom Maps that work completely independant from Starcraft 2 Achievements.
 
-Achievements Beta 2 (07-06-2020)
+Achievements Beta 0.3 (24-10-2020)
 Currently Supports:
 - Achievement Awarding Animations
 - Achievement Race Styles
 - Blizz-like Achievement Display
 - Automatic data fetching and sorting
-- Support for up two 8 players
+- Support for up to 8 players
 - Recently Earned Achievement Display
 - Custom Button in the Game Menu, Hotkey (F11)
+- Stat and Last Match Displays
 - Game Pause
 
 ## How to Use the Libraries
@@ -31,7 +32,7 @@ Feel free to ask any questions, request features or come say hi at https://disco
 ###### Adding it to your map
 1. Add mod as dependency by going to File>Dependencies and finding the mod in your folder
 2. Add your desired Bank name to the preload list by going to Map>Preload Info and adding your bank name within the banks tab
-3. The scrip will handle achievement initialization and bank loads, in the case of the trigger not working the action "Initialize Achievements" must be added to the map initalization
+3. The script will handle achievement initialization and bank loads, in the case of the trigger not working the action "Initialize Achievements" must be added to the map initalization
 
 ###### Customizing the libraries
 
@@ -61,7 +62,7 @@ Sample buttons are added by default but it can be customized to turn them into e
 ![Tree View](https://i.imgur.com/0CB0a5B.png)
 (The TreeView)
 
-Within the mod folder you will find a UI file that must be edited in order to add new achievement sections. Currently 5 max tabs are supported but more will be added down the line. By navigating within the mod components folder to Base.SC2Data/UI/Layout/KL_DevPanels.SC2Layout you will find the required templates in order to modify existing buttons and categories.
+Within the mod folder you will find a UI file that must be edited in order to add new achievement sections. Currently 9 max tabs are supported but more will be added down the line. By navigating within the mod components folder to Base.SC2Data/UI/Layout/KL_DevPanels.SC2Layout you will find the required templates in order to modify existing buttons and categories.
 
 Category Names
 ```XML
@@ -186,6 +187,55 @@ Lastly the "Summary" State within the "TabToggles" must get a new line added per
                 <Action type="SetProperty" frame="$Tab01" Toggled="False"/>
 ```
 
+Customizable text is found as a UI file named KL_LocalizedText.SC2Layout, by default these are the texts contained, but can be set to any other text by the developer, the layouts for the Stats panel and Last Match panel are not yet Customizable
+```XML
+    <!-- Custom Name displays for Tab Buttons -->
+    <Constant name="Tab0Name" val="Profile Summary"/>
+    <Constant name="Tab1Name" val="Insurrection"/>
+    <Constant name="Tab2Name" val="Terran"/>
+    <Constant name="Tab3Name" val="Zerg"/>
+    <Constant name="Tab4Name" val="Protoss"/>
+    <Constant name="Tab5Name" val="Feats of Strength"/>
+
+    <!-- Stat Panels display Names -->
+    <Constant name="Panel1HeaderTitle" val="Career"/>
+    <Constant name="Category1HeaderTitle" val="Terran Career"/>
+    <Constant name="Category2HeaderTitle" val="Zerg Career"/>
+    <Constant name="Category3HeaderTitle" val="Protoss Career"/>
+    <Constant name="Category4HeaderTitle" val="Neutral Career"/>
+    <Constant name="Category1Button" val="Terran"/>
+    <Constant name="Category2Button" val="Zerg"/>
+    <Constant name="Category3Button" val="Protoss"/>
+    <Constant name="Category4Button" val="Neutral"/>
+    <!-- Standard Stats -->
+    <Constant name="GlobalStat1Title" val="Games Played"/>
+    <Constant name="GlobalStat2Title" val="Games Won"/>
+    <Constant name="GlobalStat3Title" val="Rounds Survived"/>
+    <Constant name="GlobalStat4Title" val="Rounds Cleared"/>
+    <Constant name="GlobalStatHeader1" val="Hero Kills"/>
+    <!-- Frame 1 Stats -->
+    <Constant name="Category1Title1" val="Terran Hero 1 Kills"/>
+    <Constant name="Category1Title2" val="Terran Hero 2 Kills"/>
+    <Constant name="Category1Title3" val="Terran Hero 3 Kills"/>
+    <!-- Frame 2 Stats -->
+    <Constant name="Category2Title1" val="Zerg Hero 1 Kills"/>
+    <Constant name="Category2Title2" val="Zerg Hero 2 Kills"/>
+    <Constant name="Category2Title3" val="Zerg Hero 3 Kills"/>
+    <!-- Frame 3 Stats -->
+    <Constant name="Category3Title1" val="Protoss Hero 1 Kills"/>
+    <Constant name="Category3Title2" val="Protoss Hero 2 Kills"/>
+    <Constant name="Category3Title3" val="Protoss Hero 3 Kills"/>
+    <!-- Frame 4 Stats -->
+    <Constant name="Category4Title1" val="Global Stat 1"/>
+    <Constant name="Category4Title2" val="Global Stat 2"/>
+    <Constant name="Category4Title3" val="Global Stat 3"/>
+
+    <!-- Last Match display Names -->
+
+    <Constant name="Panel2HeaderTitle" val="Last Match"/>
+    <Constant name="Panel2Title" val="Last Played"/>
+```
+
 ## Updating to a Newer Version
 
 If you're updating to a newer version of the libraries it isn't required to delete everything and start over, instead modular files are used that can be easily transfered over to the newer version, these files are contained in the following folders:
@@ -193,6 +243,8 @@ If you're updating to a newer version of the libraries it isn't required to dele
 SCD-Achievements.SC2Mod\Base.SC2Data\GameData\UserData.xml - Contains achievements, in the case that achievements were added here instead of the Map itself
 
 SCD-Achievements.SC2Mod\Base.SC2Data\UI\Layout\KL_DevPanels.SC2Layout - Contains Customized UI panels
+
+SCD-Achievements.SC2Mod\Base.SC2Data\UI\Layout\KL_LocalizedText.SC2Layout - Contains Cusomizable Text
 
 Backup these files before using the new mod version.
 
