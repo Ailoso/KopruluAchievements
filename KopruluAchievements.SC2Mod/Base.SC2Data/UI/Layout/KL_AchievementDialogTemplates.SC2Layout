@@ -29,7 +29,7 @@
             <Visible val="False"/>
         </Frame>
 
-        <!-- Last Used Panel -->
+        <!-- Last Match Panel -->
 
         <Frame type="Frame" name="LastMatchPanel" template="KL_UserProfileSummaryTemplates/LastMatchPanelTemplate">
             <Anchor side="Top" relative="$parent/MatchStoryPanel" pos="Max" offset="4"/>

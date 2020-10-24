@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <!--
+    ============================
+    Temporary File Containing all and Any Text
+    ============================
+    
+    -->
+
+    <!-- Custom Name displays for Tab Buttons -->
+    <Constant name="Tab0Name" val="Profile Summary"/>
+    <Constant name="Tab1Name" val="Insurrection"/>
+    <Constant name="Tab2Name" val="Terran"/>
+    <Constant name="Tab3Name" val="Zerg"/>
+    <Constant name="Tab4Name" val="Protoss"/>
+    <Constant name="Tab5Name" val="Feats of Strength"/>
+
+    <!-- Stat Panels display Names -->
+    <Constant name="Panel1HeaderTitle" val="Career"/>
+    <Constant name="Category1HeaderTitle" val="Terran Career"/>
+    <Constant name="Category2HeaderTitle" val="Zerg Career"/>
+    <Constant name="Category3HeaderTitle" val="Protoss Career"/>
+    <Constant name="Category4HeaderTitle" val="Neutral Career"/>
+    <Constant name="Category1Button" val="Terran"/>
+    <Constant name="Category2Button" val="Zerg"/>
+    <Constant name="Category3Button" val="Protoss"/>
+    <Constant name="Category4Button" val="Neutral"/>
+    <!-- Standard Stats -->
+    <Constant name="GlobalStat1Title" val="Games Played"/>
+    <Constant name="GlobalStat2Title" val="Games Won"/>
+    <Constant name="GlobalStat3Title" val="Rounds Survived"/>
+    <Constant name="GlobalStat4Title" val="Rounds Cleared"/>
+    <Constant name="GlobalStatHeader1" val="Hero Kills"/>
+    <!-- Frame 1 Stats -->
+    <Constant name="Category1Title1" val="Terran Hero 1 Kills"/>
+    <Constant name="Category1Title2" val="Terran Hero 2 Kills"/>
+    <Constant name="Category1Title3" val="Terran Hero 3 Kills"/>
+    <!-- Frame 2 Stats -->
+    <Constant name="Category2Title1" val="Zerg Hero 1 Kills"/>
+    <Constant name="Category2Title2" val="Zerg Hero 2 Kills"/>
+    <Constant name="Category2Title3" val="Zerg Hero 3 Kills"/>
+    <!-- Frame 3 Stats -->
+    <Constant name="Category3Title1" val="Protoss Hero 1 Kills"/>
+    <Constant name="Category3Title2" val="Protoss Hero 2 Kills"/>
+    <Constant name="Category3Title3" val="Protoss Hero 3 Kills"/>
+    <!-- Frame 4 Stats -->
+    <Constant name="Category4Title1" val="Global Stat 1"/>
+    <Constant name="Category4Title2" val="Global Stat 2"/>
+    <Constant name="Category4Title3" val="Global Stat 3"/>
+
+
+    <!-- Last Match display Names -->
+
+    <Constant name="Panel2HeaderTitle" val="Last Match"/>
+    <Constant name="Panel2Title" val="Last Played"/>
+</Desc>

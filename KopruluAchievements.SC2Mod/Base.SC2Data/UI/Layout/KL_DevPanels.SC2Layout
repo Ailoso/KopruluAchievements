@@ -7,15 +7,8 @@
     
     Developer Only Constants for names, handles and settings
     -->
-
-    <!-- Custom Name displays for Tab Buttons -->
-    <Constant name="Tab0Name" val="Profile Summary"/>
-    <Constant name="Tab1Name" val="Insurrection"/>
-    <Constant name="Tab2Name" val="Terran"/>
-    <Constant name="Tab3Name" val="Zerg"/>
-    <Constant name="Tab4Name" val="Protoss"/>
-    <Constant name="Tab5Name" val="Feats of Strength"/>
-
+    
+    
     <!--
     ============================
     User Profile Achievement Listboxes

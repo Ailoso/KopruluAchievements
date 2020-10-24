@@ -2,6 +2,7 @@
 <Desc>
 
     <Include path="UI/Layout/KL_StandardTemplates.SC2Layout"/>
+    <Include path="UI/Layout/KL_LocalizedText.SC2Layout"/>
     <Include path="UI/Layout/KL_UserProfileSummaryTemplates.SC2Layout"/>
     <Include path="UI/Layout/KL_AchievementFanfaresFrame.SC2Layout"/>
     <Include path="UI/Layout/KL_UserProfileTemplates.SC2Layout"/>

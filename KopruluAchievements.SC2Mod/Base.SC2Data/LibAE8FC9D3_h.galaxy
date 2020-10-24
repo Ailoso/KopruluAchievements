@@ -57,6 +57,10 @@ struct libAE8FC9D3_gs_KL_UserProfile {
     int[8] lv_recentItemPoints;
     int[8] lv_recentItemIcon;
     int[8] lv_recentItemDate;
+    int[5][4] lv_statsGlobalValues;
+    int[5][4] lv_specificStatValues;
+    int lv_lastPlayedLabel;
+    int lv_lastPlayedCharImage;
 };
 
 struct libAE8FC9D3_gs_KL_AchievementListbox {
@@ -118,6 +122,8 @@ void libAE8FC9D3_gf_ShowUserProfile (int lp_player);
 void libAE8FC9D3_gf_InitializeAchievements ();
 void libAE8FC9D3_gf_UpdateAchievementProgress (string lp_achievement, int lp_valueIncrease, int lp_player);
 void libAE8FC9D3_gf_AwardAchievement (string lp_achievement, int lp_player);
+void libAE8FC9D3_gf_SetSummaryStatValue (int lp_newValue, int lp_category, int lp_valueLabel, int lp_player);
+void libAE8FC9D3_gf_SetSummaryLastPlayed (string lp_text, string lp_image, int lp_player);
 bool libAE8FC9D3_gf_PlayerHasAchievement (int lp_player, string lp_achievement);
 bank libAE8FC9D3_gf_ReturnPlayerBank (int lp_player);
 void libAE8FC9D3_gf_KL_InitAchi ();
@@ -135,6 +141,8 @@ string libAE8FC9D3_gf_KL_ReturnDummyFramePath (int lp_type);
 void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player);
 void libAE8FC9D3_gf_KL_UpdateUserProfile (int lp_player);
 void libAE8FC9D3_gf_KL_UpdateRecentAchievements (int lp_player);
+void libAE8FC9D3_gf_KL_SetStatPanelValue (int lp_newValue, int lp_category, int lp_valueLabel, int lp_player);
+void libAE8FC9D3_gf_KL_SetLastPlayedValue (string lp_text, string lp_image, int lp_player);
 void libAE8FC9D3_gf_KL_HookupFanfarePanels (int lp_player);
 void libAE8FC9D3_gf_KL_CreateUserProfilePanel (int lp_player);
 void libAE8FC9D3_gf_KL_HoDItemInListbox (int lp_player, int lp_listBox, int lp_achievementItem);

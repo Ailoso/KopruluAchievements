@@ -68,6 +68,18 @@ void libAE8FC9D3_InitVariables () {
         for (init_i1 = 0; init_i1 <= 7; init_i1 += 1) {
             libAE8FC9D3_gv_kL_UserProfile[init_i].lv_recentItemDate[init_i1] = c_invalidDialogControlId;
         }
+        for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
+            for (init_j1 = 0; init_j1 <= 3; init_j1 += 1) {
+                libAE8FC9D3_gv_kL_UserProfile[init_i].lv_statsGlobalValues[init_i1][init_j1] = c_invalidDialogControlId;
+            }
+        }
+        for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
+            for (init_j1 = 0; init_j1 <= 3; init_j1 += 1) {
+                libAE8FC9D3_gv_kL_UserProfile[init_i].lv_specificStatValues[init_i1][init_j1] = c_invalidDialogControlId;
+            }
+        }
+        libAE8FC9D3_gv_kL_UserProfile[init_i].lv_lastPlayedLabel = c_invalidDialogControlId;
+        libAE8FC9D3_gv_kL_UserProfile[init_i].lv_lastPlayedCharImage = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= libAE8FC9D3_gv_kL_MaxPlayers; init_i += 1) {
         for (init_j = 0; init_j <= libAE8FC9D3_gv_kL_MaxAvailableLists; init_j += 1) {
@@ -194,6 +206,18 @@ void libAE8FC9D3_gf_AwardAchievement (string lp_achievement, int lp_player) {
     // Automatic Variable Declarations
     // Implementation
     libAE8FC9D3_gf_KL_AwardAchi(lp_achievement, lp_player);
+}
+
+void libAE8FC9D3_gf_SetSummaryStatValue (int lp_newValue, int lp_category, int lp_valueLabel, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    libAE8FC9D3_gf_KL_SetStatPanelValue(lp_newValue, lp_category, lp_valueLabel, lp_player);
+}
+
+void libAE8FC9D3_gf_SetSummaryLastPlayed (string lp_text, string lp_image, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    libAE8FC9D3_gf_KL_SetLastPlayedValue(lp_text, lp_image, lp_player);
 }
 
 bool libAE8FC9D3_gf_PlayerHasAchievement (int lp_player, string lp_achievement) {
@@ -386,12 +410,10 @@ void libAE8FC9D3_gf_KL_BankSave (int lp_player, bool lp_update) {
     // Implementation
     lv_localBank = libAE8FC9D3_gf_ReturnPlayerBank(lp_player);
     if ((BankVerify(lv_localBank) != true)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/lib_AE8FC9D3_E57BA842"));
         return ;
     }
 
     BankSave(lv_localBank);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/lib_AE8FC9D3_B433625A"));
     if ((lp_update == true)) {
         libAE8FC9D3_gf_KL_UpdateUserProfile(1);
     }
@@ -727,6 +749,42 @@ void libAE8FC9D3_gf_KL_UpdateRecentAchievements (int lp_player) {
     }
 }
 
+void libAE8FC9D3_gf_KL_SetStatPanelValue (int lp_newValue, int lp_category, int lp_valueLabel, int lp_player) {
+    // Automatic Variable Declarations
+    int auto47219701_val;
+
+    // Implementation
+    auto47219701_val = lp_valueLabel;
+    if (auto47219701_val == 1) {
+        libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_statsGlobalValues[lp_category][1], IntToText(lp_newValue), PlayerGroupSingle(lp_player));
+    }
+    else if (auto47219701_val == 2) {
+        libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_statsGlobalValues[lp_category][2], IntToText(lp_newValue), PlayerGroupSingle(lp_player));
+    }
+    else if (auto47219701_val == 3) {
+        libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_statsGlobalValues[lp_category][3], IntToText(lp_newValue), PlayerGroupSingle(lp_player));
+    }
+    else if (auto47219701_val == 4) {
+        libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_specificStatValues[lp_category][1], IntToText(lp_newValue), PlayerGroupSingle(lp_player));
+    }
+    else if (auto47219701_val == 5) {
+        libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_specificStatValues[lp_category][2], IntToText(lp_newValue), PlayerGroupSingle(lp_player));
+    }
+    else if (auto47219701_val == 6) {
+        libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_specificStatValues[lp_category][3], IntToText(lp_newValue), PlayerGroupSingle(lp_player));
+    }
+    else {
+        return ;
+    }
+}
+
+void libAE8FC9D3_gf_KL_SetLastPlayedValue (string lp_text, string lp_image, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SetDialogItemImage(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_lastPlayedCharImage, lp_image, PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_lastPlayedLabel, StringToText(lp_text), PlayerGroupSingle(lp_player));
+}
+
 void libAE8FC9D3_gf_KL_HookupFanfarePanels (int lp_player) {
     // Variable Declarations
     int lv_index;
@@ -758,9 +816,14 @@ void libAE8FC9D3_gf_KL_HookupFanfarePanels (int lp_player) {
 void libAE8FC9D3_gf_KL_CreateUserProfilePanel (int lp_player) {
     // Variable Declarations
     int lv_index;
+    int lv_index2;
     int lv_messageLog;
 
     // Automatic Variable Declarations
+    const int auto76BD8D0D_ae = 4;
+    const int auto76BD8D0D_ai = 1;
+    const int autoED314B1A_ae = 3;
+    const int autoED314B1A_ai = 1;
     const int auto963741B6_ae = 7;
     const int auto963741B6_ai = 1;
     const int auto9CF1BF8C_ae = 5;
@@ -777,6 +840,24 @@ void libAE8FC9D3_gf_KL_CreateUserProfilePanel (int lp_player) {
     lv_messageLog = DialogControlLastCreated();
     DialogControlHookup(lv_messageLog, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("AchievementsDialog"));
     libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto76BD8D0D_ai >= 0 && lv_index <= auto76BD8D0D_ae) || (auto76BD8D0D_ai < 0 && lv_index >= auto76BD8D0D_ae) ) ; lv_index += auto76BD8D0D_ai ) {
+        DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/MatchStoryPanel/UserProfileSummaryStatsFrame/StatsFrame" + IntToString(lv_index) + "/CareerGamesValue")));
+        libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_statsGlobalValues[lv_index][1] = DialogControlLastCreated();
+        DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/MatchStoryPanel/UserProfileSummaryStatsFrame/StatsFrame" + IntToString(lv_index) + "/WinsValue")));
+        libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_statsGlobalValues[lv_index][2] = DialogControlLastCreated();
+        DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/MatchStoryPanel/UserProfileSummaryStatsFrame/StatsFrame" + IntToString(lv_index) + "/StandardGlobalStat1Value")));
+        libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_statsGlobalValues[lv_index][3] = DialogControlLastCreated();
+        lv_index2 = 1;
+        for ( ; ( (autoED314B1A_ai >= 0 && lv_index2 <= autoED314B1A_ae) || (autoED314B1A_ai < 0 && lv_index2 >= autoED314B1A_ae) ) ; lv_index2 += autoED314B1A_ai ) {
+            DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/MatchStoryPanel/UserProfileSummaryStatsFrame/StatsFrame" + IntToString(lv_index) + "/KillStatValue" + IntToString(lv_index2))));
+            libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_specificStatValues[lv_index][lv_index2] = DialogControlLastCreated();
+        }
+    }
+    DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/LastMatchPanel/LastUsedCharacterFrame/LastGameBackgroundContainer/CharacterLabel")));
+    libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_lastPlayedLabel = DialogControlLastCreated();
+    DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/LastMatchPanel/LastUsedCharacterFrame/LastGameBackgroundContainer/CharacterImage")));
+    libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_lastPlayedCharImage = DialogControlLastCreated();
     lv_index = 0;
     for ( ; ( (auto963741B6_ai >= 0 && lv_index <= auto963741B6_ae) || (auto963741B6_ai < 0 && lv_index >= auto963741B6_ae) ) ; lv_index += auto963741B6_ai ) {
         DialogControlHookup(libAE8FC9D3_gv_kL_UserProfile[lp_player].lv_userProfilePanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("AchievementsFrame/RecentAchievementsListBox/AchievementItem" + IntToString(lv_index))));
