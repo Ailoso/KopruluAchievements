@@ -3,7 +3,7 @@ By the community, for the community.
 
 Achievement libraries for Starcraft 2 Custom Maps that work completely independant from Starcraft 2 Achievements.
 
-Achievements Beta 0.3 (24-10-2020)
+Achievements Beta 0.4 (24-10-2021)
 Currently Supports:
 - Achievement Awarding Animations
 - Achievement Race Styles
@@ -29,17 +29,20 @@ In-game a new button in the Menu bar can be used to open the Panel but the hotke
 ## How to Install the Mod
 Feel free to ask any questions, request features or come say hi at https://discord.gg/45kseu or Chonky Kat#8186
 
-###### Adding it to your map
+###### Adding it to your map/Mod
 1. Add mod as dependency by going to File>Dependencies and finding the mod in your folder
-2. Add your desired Bank name to the preload list by going to Map>Preload Info and adding your bank name within the banks tab
+2. Add your desired Bank name to the preload list by going to Map/Mod>Preload Info and adding your bank name within the banks tab
 3. The script will handle achievement initialization and bank loads, in the case of the trigger not working the action "Initialize Achievements" must be added to the map initalization
 
 ###### Customizing the libraries
 
 1. Modifying the Bank Name
-By default the libraries use the name KLClassic but it can be easily changed within the mod by finding the constant variable "KL_AchievementSectionConstant" which can be located here.
+By default the libraries use the name KLClassic but it can be easily changed within the mod by finding the constant variable "KL_AchievementNameConstant" which can be located here. There are more instances of "KLClassic" which have to be replaced with your bank name.
 
 ![Constant Location](https://i.imgur.com/C1FMHXA.png)
+
+The variabe "KL_AchievementSectionConstant" will be the name of the section where all achievements are stored.
+If you are already using a bank for your map/mod the variable name "KL_AchievementNameConstant" has to match with your bank name. as well as replacing all instances of KLClassic with your bank name
 
 2. Adding new Achievements
 New achievements can be added inside user types on a pre-existing template. You can find it in Data> User Types> Koprulu Achievements
@@ -54,7 +57,7 @@ The minimum required fields are:
 The remaning fields are not in use at the moment.
 Achievements can be added in any order, but any that must be above a particular achievement within a category must be higher in the list.
 
-### It's recommended that achievements are added in your map, instead of the achievements mod.
+### It's recommended that achievements are added in your main mod or map, instead of the achievements mod.
 
 3. Adding new Achievement Categories
 Sample buttons are added by default but it can be customized to turn them into either normal or collapsible buttons according to your needs. Some text editing is required but once set up it will be mostly permanent, even through updates.
