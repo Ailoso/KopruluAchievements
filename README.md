@@ -24,7 +24,7 @@ Animated Achievement toasts come supported in all 3 Race styles
 
 ![Achievement Button](https://i.imgur.com/rVLP2So.png)
 
-A new battle menu button is supported along with a custom hotkey. Supports all standard SC2 Console Skins
+A new battle menu button is supported along with a custom hotkey (F11). Supports all standard SC2 Console Skins
 
 ![Recent Achievements](https://i.imgur.com/cLv1TLT.png)
 
