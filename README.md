@@ -1,4 +1,7 @@
-# Koprulu Achievements
+layout: page
+title: The page title
+subtitle: The page subtitle
+
 By the community, for the community.
 
 Achievement libraries for Starcraft 2 Custom Maps that work completely independant from Starcraft 2 Achievements.
