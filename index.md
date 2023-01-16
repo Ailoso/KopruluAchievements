@@ -7,9 +7,40 @@ show sidebar: false
 
 ## Achievement Libraries
 
-The Koprulu Achievement Libraries provide support for Mapmakers to add custom Achievements, display toast animations and show them off in their User Profile, this replaces the Blizzard Achievement Panels.
+The Koprulu Achievement Libraries provide support for Mapmakers to add custom Achievements, display toast animations and show them off in their User Profile.
 
-```xml
-<Handle val="ChooseForestButton"/>
-```
-### sample markdown
+For Full Instructions, please follow the Documentation
+
+## Download
+[![Version](https://badge.fury.io/gh/Ailoso%2FKopruluAchievements.svg)](https://github.com/Ailoso/KopruluAchievements)
+![GitHub Repo stars](https://img.shields.io/github/stars/Ailoso/KopruluAchievements?style=social)
+
+## Supported Features
+
+Current available features.
+
+* Achievement Toasts
+    - Support for all 3 Race Styles
+    - Fully Animated
+* User Profile
+    - Achievement List Display
+    - Recent Achievements
+    - Displays a custom avatar while offline
+    - Displays Player avatar while online
+    - Campaign Completion (Optional)
+    - Achievement Completion (Optional)
+    - Career Stats (Optional)
+    - Last Match Display (Optional)
+* Achievement Items
+    - Regular
+    - Series
+    - Progress Bars
+    - Rewards
+    - Criteria
+    - Feat of Strength
+* Menu Button
+    - Supports Console Skins
+    - Supports Custom Hotkey
+* Fully Localizable Text
+
+###### Page Under Construction
