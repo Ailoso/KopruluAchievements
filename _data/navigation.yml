@@ -1,7 +1,5 @@
-name: Documentation
-link: /docs/
+- name: Documentation
+  link: /docs/
 
-name: Patchnotes
-link: /notes/
-
-fixed_navbar: top
+- name: Patchnotes
+  link: /notes/
