@@ -1,6 +1,11 @@
+---
 layout: page
-title: The page title
-subtitle: The page subtitle
+title: Configuration
+subtitle: Getting Started
+menubar: docs_menu
+show_sidebar: false
+toc: true
+---
 
 By the community, for the community.
 
