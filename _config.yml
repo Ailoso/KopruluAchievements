@@ -1,1 +1,11 @@
+# Site Settings
+lang: en
+title: Koprulu Achievements
+tagline: Koprulu Achievements
+description: >
+  Documentation Site for Koprulu Achievements
+permalink: pretty
+theme_color: '#025775'
+fixed_navbar: top
+
 remote_theme: chrisrhymes/bulma-clean-theme
