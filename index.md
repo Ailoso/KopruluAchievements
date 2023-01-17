@@ -19,8 +19,15 @@ For Full Instructions, please follow the [Documentation](/KopruluAchievements/do
 
 Current available features.
 
+<div class="columns">
+<div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
-Libraries in Action
+
+*Libraries in Action*
+</div>
+<div class="column is-6">
+</div>
+</div>
 
 * **Achievement Toasts**
     - Support for all 3 Race Styles
@@ -47,9 +54,6 @@ Libraries in Action
 * **Fully Localizable Text**
 
 <div class="columns">
-<div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
-</div>
 <div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
 </div>
