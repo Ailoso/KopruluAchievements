@@ -39,15 +39,17 @@ Libraries in Action
 
 * **Achievement Toasts**
 
-    - Supports on all 3 Race Styles
     - Fully Animated
+    - Supports on all 3 Race Styles
 
 * **User Profile**
 
     - Achievement List Display
     - Recent Achievements
+
     - Displays Custom avatar while offline
     - Displays Player avatar while online
+    
     - Achievement Completion (Optional)
     - Campaign Completion (Optional)
     - Career Stats (Optional)
