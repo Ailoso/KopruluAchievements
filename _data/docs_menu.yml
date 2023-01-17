@@ -7,4 +7,11 @@
       link: /docs/setup/configuration/
     - name: UI Modification
       link: /docs/setup/ui-changes/
-- label: 
+- label: Adding Achievements
+  items:
+    - name: Adding Basic Achievements
+      link: /docs/achi-setup/basic-achievements/
+    - name: Adding Progress Achievements
+      link: /docs/achi-setup/progress-achievements/
+    - name: Adding Series Achievements
+      link: /docs/achi-setup/series-achievements/

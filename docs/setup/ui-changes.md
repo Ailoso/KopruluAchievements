@@ -37,6 +37,7 @@ Target Folder
 </div>
 
 Find the section labeled `User Profile Achievement Listboxes`, under it there’s a frame called `DevAchievementsListboxContainerTemplate` containing a sample of 4 active listboxes, if more were required simply copy paste one of the frames under it and increase the number.
+
 The Handle Property must also have it’s value increased
 
 ```XML
@@ -55,7 +56,8 @@ There are two types of Tree View Buttons available:
 * Arrow Tab Buttons
     - These buttons can have a Submenu Attached below them indicated by the Arrow on it's right side.
 
-`TabButton0` should never be removed
+`TabButton0` should never be removed.
+
 To edit the placement first find the file `KL_DevPanels.SC2Layout` in the section labeled `User Profile Tree View`, under it there's a frame called `DevScrollableFrameTemplate` Containing everything related to the Tree View
 
 <div class="columns">
@@ -214,6 +216,178 @@ Next is adding a submenu under your new Arrow Tab Button by doing the following.
     </Frame>
 ```
 
+## Modifying Display StateGroups
+
+Since the game is paused while the Achievements menu is open, no trigger events can be used, thus the libraries rely on Animations and Stategroups to handle Navigation through it's menus, now we have to modify and add new animations to display our brand new buttons.
+
+###### Summary Tab
+
+First navigate witin the `KL_DevPanels.SC2Layout` file under a section labeled `Tab States`, until you find the `TabToggles` Stategroup, this State is responsible from Toggling Tab buttons and Collapsible Tabs off when selecting the summary.
+
+We'll start modifying the Summary State after the Comment we'll be adding an action per each TabArrowButton in our case:
+```XML
+    <!-- Any Parents of Subtabs should be toggled Off when pressing the Summary Button -->
+    <Action type="SetProperty" frame="$Tab2" Toggled="False"/>
+```
+
+###### Regular Tab Buttons
+
+These tabs are controlled by a single state and only require an event and an action, copy paste the following for your regular Tabs placing it after the Summary State
+
+```XML
+    <State name="Tab01">
+        <Action type="SetProperty" frame="$Tab1" Toggled="True"/>
+        <Action type="SetProperty" frame="$Listbox01" Visible="True"/>
+    </State>
+```
+
+Once again naming is important as these states are toggled as well by some animations down the line
+
+###### Arrow Tab Buttons
+
+These Tabs require two states as they remain toggled even when de-selected as long as you're browsing an item inside the category.
+
+```XML
+    <State name="Tab02">
+        <Action type="SetProperty" frame="$Tab2" Toggled="True"/>
+        <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Expanded"/>
+        <Action type="SetProperty" frame="$Listbox02" Visible="True"/>
+    </State>
+
+    <State name="Tab02Off">
+        <Action type="SetProperty" frame="$Tab2" Toggled="True"/>
+        <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Collapsed"/>
+        <Action type="SetProperty" frame="$Listbox02" Visible="True"/>
+    </State>
+```
+
+SubTabs come after the Arrow Tab States and look quite similar to a regular tab with an extra property, copy paste the following for your SubTabs
+
+```XML
+    <State name="Sub02Tab00">
+        <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Expanded"/>
+        <Action type="SetProperty" frame="$SubTab00" Toggled="True"/>
+        <Action type="SetProperty" frame="$Listbox03" Visible="True"/>
+    </State>
+
+    <State name="Sub02Tab01">
+        <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Expanded"/>
+        <Action type="SetProperty" frame="$SubTab01" Toggled="True"/>
+        <Action type="SetProperty" frame="$Listbox04" Visible="True"/>
+    </State>
+```
+
+With this our Stategroup should look like the following.
+
+```XML
+    <StateGroup name="TabToggles">
+        <DefaultState val="Summary"/>
+    
+        <State name="Summary">
+            <Action type="SetProperty" frame="$SummaryTab" Toggled="True"/>
+            <Action type="SetProperty" frame="$parent/$parent/RecentAchievementsListBox" Visible="True"/>
+            
+            <Action type="SetProperty" frame="$parent/$parent/LastMatchPanel" Visible="True"/>
+            <Action type="SetProperty" frame="$parent/$parent/MatchStoryPanel" Visible="True"/>
+
+            <!-- Any Parents of Subtabs should be toggled Off when pressing the Summary Button -->
+            <Action type="SetProperty" frame="$Tab2" Toggled="False"/>
+        </State>
+
+        <State name="Tab01">
+            <Action type="SetProperty" frame="$Tab1" Toggled="True"/>
+            <Action type="SetProperty" frame="$Listbox01" Visible="True"/>
+        </State>
+
+        <State name="Tab02">
+            <Action type="SetProperty" frame="$Tab2" Toggled="True"/>
+            <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Expanded"/>
+            <Action type="SetProperty" frame="$Listbox02" Visible="True"/>
+        </State>
+
+        <State name="Tab02Off">
+            <Action type="SetProperty" frame="$Tab2" Toggled="True"/>
+            <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Collapsed"/>
+            <Action type="SetProperty" frame="$Listbox02" Visible="True"/>
+        </State>
+
+        <State name="Sub02Tab00">
+            <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Expanded"/>
+            <Action type="SetProperty" frame="$SubTab00" Toggled="True"/>
+            <Action type="SetProperty" frame="$Listbox03" Visible="True"/>
+        </State>
+
+        <State name="Sub02Tab01">
+            <Action type="SetState" frame="$Tab2" group="ExpansionState" state="Expanded"/>
+            <Action type="SetProperty" frame="$SubTab01" Toggled="True"/>
+            <Action type="SetProperty" frame="$Listbox04" Visible="True"/>
+        </State>
+    </StateGroup>
+```
+
+## Modifying Toggle Animations
+
+The following animations control the behavior of the Tab Buttons and activate some of the States, they can be found under the label `Tab Animation States`
+
+###### Regular Tab Animation
+
+These do not require an On/Off Animation same as it's stategroup, set the frame on the event to your Tab's Handle and the Identifier' Value in the Key to the name of it's corresponding StateGroup
+
+```XML
+    <Animation name="Tab01Toggle">
+        <Event event="OnClick" action="Reset,Play" frame="$Tab1"/>
+    
+        <Controller type="State" end="Pause" frame="$this" stateGroup="TabToggles">
+            <Key type="Identifier" time="0.0" value="Tab01"/>
+        </Controller>
+    </Animation>
+```
+
+###### Arrow Tab Animation
+
+Same as it's StateGroup counterpart these require an animation to activate the StateGroups, same as before set the frame on the event to your Tab's Handle and the Identifier' Value in the Key to the name of it's corresponding StateGroup the only difference poiting the `ToggleOff` animation to `frame="$Tab2/UntoggleButton"`
+
+```XML
+    <Animation name="Tab02Toggle">
+        <Event event="OnClick" action="Reset,Play" frame="$Tab2"/>
+
+        <Controller type="State" end="Pause" frame="$this" stateGroup="TabToggles">
+            <Key type="Identifier" time="0.0" value="Tab02"/>
+        </Controller>
+    </Animation>
+
+    <Animation name="Tab02ToggleOff">
+        <Event event="OnClick" action="Reset,Play" frame="$Tab2/UntoggleButton"/>
+
+        <Controller type="State" end="Pause" frame="$this" stateGroup="TabToggles">
+            <Key type="Identifier" time="0.0" value="Tab02Off"/>
+        </Controller>
+    </Animation>
+```
+
+SubTab animations come right after just like before
+
+```XML
+    <Animation name="Sub02Tab00Toggle">
+        <Event event="OnClick" action="Reset,Play" frame="$SubTab00"/>
+
+        <Controller type="State" end="Pause" frame="$this" stateGroup="TabToggles">
+            <Key type="Identifier" time="0.0" value="Sub02Tab00"/>
+        </Controller>
+    </Animation>
+
+    <Animation name="Sub02Tab01Toggle">
+        <Event event="OnClick" action="Reset,Play" frame="$SubTab01"/>
+
+        <Controller type="State" end="Pause" frame="$this" stateGroup="TabToggles">
+            <Key type="Identifier" time="0.0" value="Sub02Tab01"/>
+        </Controller>
+    </Animation>
+```
+
+Every part of this tutorial is in the `KL_DevPanels.SC2Layout` file contained in the Sample Achievements Map
+
+
 <div class="columns">
 <div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/yoV0K3gl.png" alt="Example image" large_link="https://i.imgur.com/yoV0K3g.png" %}
@@ -224,4 +398,5 @@ End Result
 </div>
 </div>
 
-Now you should be able to launch a map, access the menu by pressing F11 and view your progress, next Achievements are getting added to display something. [Installation](/KopruluAchievements/docs/setup/installation/)
+
+Now you should be able to launch a map, access the menu by pressing F11 and view your progress, next Achievements are getting added to display something inside the Listboxes. [Installation](/KopruluAchievements/docs/setup/installation/)
