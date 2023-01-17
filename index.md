@@ -12,7 +12,7 @@ The Koprulu Achievement Libraries provide support for Mapmakers to add custom Ac
 For Full Instructions, please follow the [Documentation](/kopruluAchievements/docs/)
 
 ## Download
-[![Version](https://img.shields.io/badge/Release-Test-brightgreen)](https://github.com/Ailoso/KopruluAchievements)
+[![Version](https://img.shields.io/badge/Release-1.0-brightgreen)](https://github.com/Ailoso/KopruluAchievements)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Ailoso/KopruluAchievements?style=social)
 
 ## Supported Features
