@@ -5,14 +5,13 @@ layout: page
 show sidebar: false
 ---
 
-###### Page Under Construction
+## Page Under Construction
 
 Some Documentation may be missing as we are currently updating it.
 
 ## Achievement Libraries
 
-The Koprulu Achievement Libraries will provide support and a guide for Mapmakers to add custom Achievements,
-display toast animations and show them off in their User Profile.
+The Koprulu Achievement Libraries will provide support and a guide for Mapmakers to add custom Achievements, toast animations and show them off in their User Profile.
 
 For Full Instructions on how to use it, please follow the [Documentation](/KopruluAchievements/docs/)
 
