@@ -15,8 +15,15 @@ To begin [Download](https://github.com/Ailoso/KopruluAchievements) the latest re
 
 Place the folder `KopruluAchievements.SC2Mod` in the Starcraft 2 Installation Folder > Mods, you may rename the mod if you need making sure to keep the extension.
 
-Open your Core Mod file or your Map file, Navigate to the top left menu > File > Dependencies and Add the Koprulu Achievements modfile.
+Open your Core Mod file or your Map file, Navigate to the `Top Left Fenu > File > Dependencies` and Add the Koprulu Achievements modfile.
 
+<div class="columns">
+<div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+*Dependencies List*
+</div>
+<div class="column is-6">
+</div>
+</div>
 
-Now you've finished adding the mod to your Map/Mod follow the [Configuration](/kopruluAchievements/docs/setup/configuration/) step next.
+Now you've finished adding the mod to your Map/Mod follow the [Configuration](/KopruluAchievements/docs/setup/configuration/) step next.

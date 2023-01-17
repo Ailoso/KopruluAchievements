@@ -15,7 +15,14 @@ Start by opening the `KopruluAchievements` folder and launching the `ComponentLi
 
 Navigate to the folder `Creator Only > Variables` in here you will find the variables you need to modify.
 
+<div class="columns">
+<div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+*Target Folder*
+</div>
+<div class="column is-6">
+</div>
+</div>
 
 Go to `KL_AchievementNameConstant` and set it to the name of your Bank file. 
 
@@ -31,5 +38,12 @@ These values are important for optimization purposes.
 
 By default only `X` Achievement lists are available, the number of lists has to match with the number of lists in the `KL_MaxAvailableLists`.
 
+<div class="columns">
+<div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+*List Example*
+</div>
+<div class="column is-6">
+</div>
+</div>
 
