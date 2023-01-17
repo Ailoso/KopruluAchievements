@@ -18,6 +18,6 @@
 - label: Actions and Functions
   items:
     - name: Actions
-      link: /docs/actins-setup/actions/
+      link: /docs/actions-setup/actions/
     - name: Functions
-      link: /docs/actins-setup/functions/
+      link: /docs/actions-setup/functions/
