@@ -17,7 +17,7 @@ They are composed of a Container Frame featuring a ScrollBar that becomes active
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/yoV0K3gl.png" alt="Example image" large_link="https://i.imgur.com/yoV0K3g.png" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/XkIG6sml.png" alt="Example image" large_link="https://i.imgur.com/XkIG6sm.png" %}
 
 Listbox Sample
 </div>
@@ -30,7 +30,7 @@ Navigate to the folder `Base.SC2Data > UI > Layout` in here open the file `KL_De
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/yoV0K3gl.png" alt="Example image" large_link="https://i.imgur.com/yoV0K3g.png" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/VPV1zmKl.png" alt="Example image" large_link="https://i.imgur.com/VPV1zmK.png" %}
 
 Target Folder
 </div>
@@ -64,7 +64,7 @@ To edit the placement first find the file `KL_DevPanels.SC2Layout` in the sectio
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/yoV0K3gl.png" alt="Example image" large_link="https://i.imgur.com/yoV0K3g.png" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/QEX0AEml.png" alt="Example image" large_link="https://i.imgur.com/QEX0AEm.png" %}
 
 Tree View Sample
 </div>
@@ -392,7 +392,7 @@ Every part of this tutorial is in the `KL_DevPanels.SC2Layout` file contained in
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/yoV0K3gl.png" alt="Example image" large_link="https://i.imgur.com/yoV0K3g.png" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/HO0ykAWl.png" alt="Example image" large_link="https://i.imgur.com/HO0ykAW.png" %}
 
 End Result
 </div>
