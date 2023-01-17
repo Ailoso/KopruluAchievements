@@ -22,7 +22,6 @@ Currently Supports:
 - Custom Button in the Game Menu, Hotkey (F11)
 - Stat and Last Match Displays
 - Game Pause
-- TEST 123
 
 ## Screenshots
 * Some screenshots were taken during the Development of UED:First Light.
