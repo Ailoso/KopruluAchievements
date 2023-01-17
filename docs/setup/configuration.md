@@ -9,7 +9,7 @@ toc: true
 
 ## Setting up Values
 
-Next is configuring the default variables that control several aspects of the libraries, these values should be changed with each new release.
+Next is configuring the default variables that control several aspects of the libraries, these values should be updated with each new release.
 
 Start by opening the `KopruluAchievements` folder and launching the `ComponentList.SC2Components` file to open the mod.
 
@@ -48,3 +48,4 @@ List Example
 </div>
 </div>
 
+At this point you may receive some UI errors and only the default lists may display, but don't worry we'll continue on [UI Modification](/KopruluAchievements/docs/setup/ui-changes/)

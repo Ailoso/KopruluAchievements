@@ -5,4 +5,6 @@
       link: /docs/setup/installation/
     - name: Configuration
       link: /docs/setup/configuration/
+    - name: UI Modification
+      link: /docs/setup/ui-changes/
 - label: 
