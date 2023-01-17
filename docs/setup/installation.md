@@ -29,4 +29,4 @@ Dependencies List
 
 Finally to test that the mod is working properly, add the following during your Map Initialization with the following action `Initialize Achievements`, Launch the map and press F9, the Menu will act as default and will require some more UI tweaks to be complete.
 
-Now you've finished adding the mod to your Map/Mod follow the [Configuration](/KopruluAchievements/docs/setup/configuration/) step next.
+Now you've finished adding the mod to your Map/Mod please proceed and follow the [Configuration](/KopruluAchievements/docs/setup/configuration/) step next.
