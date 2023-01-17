@@ -5,7 +5,7 @@ menubar: docs_menu
 show_sidebar: false
 ---
 
-The Achievement libraries have many features available to use. 
+The Koprulu Achievement Libraries has many features available to use and customized to your needs. 
 
 The Documentation has been split into multiple categories to make it easier to browse through it.
 
