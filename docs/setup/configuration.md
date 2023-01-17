@@ -41,7 +41,7 @@ If you have not yet set a Preload Info in your Mod/Map you can add it at this po
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/5AyWGksl.png" alt="Example image" large_link="https://i.imgur.com/5AyWGks.png" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/wAb2YGKl.png" alt="Example image" large_link="https://i.imgur.com/wAb2YGK.png" %}
 Preload Info Menu
 </div>
 <div class="column is-6">
@@ -52,7 +52,7 @@ In this window you may select the pre-existing value and set the name to the Nam
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/5AyWGksl.png" alt="Example image" large_link="https://i.imgur.com/5AyWGks.png" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/sftNVvcl.png" alt="Example image" large_link="https://i.imgur.com/sftNVvc.png" %}
 Preload Info Window
 </div>
 <div class="column is-6">
