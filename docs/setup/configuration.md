@@ -17,9 +17,9 @@ Navigate to the folder `Creator Only > Variables` in here you will find the vari
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/yoV0K3gm.png" alt="Example image" large_link="https://i.imgur.com/yoV0K3g.png" %}
 
-*Target Folder*
+Target Folder
 </div>
 <div class="column is-6">
 </div>
@@ -41,9 +41,8 @@ By default only `X` Achievement lists are available, the number of lists has to 
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
-
-*List Example*
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/5AyWGksm.png" alt="Example image" large_link="https://i.imgur.com/5AyWGks.png" %}
+List Example
 </div>
 <div class="column is-6">
 </div>
