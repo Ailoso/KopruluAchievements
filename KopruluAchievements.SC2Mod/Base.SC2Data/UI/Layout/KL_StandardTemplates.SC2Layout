@@ -31,6 +31,15 @@
 
         <Frame type="Label" name="AchievementPoints">
             <Anchor relative="$parent"/>
+            <Text val=""/>
+
+            <StateGroup name="VisibilityState">
+                <State name="Hidden">
+                    <When type="Property" frame="$this" Text=""/>
+                    
+                    <Action type="SetProperty" frame="$this" Visible="False"/>
+                </State>
+            </StateGroup>
          </Frame>
         
         <Frame type="Label" name="CompletionDate">
@@ -118,6 +127,11 @@
                 <DefaultState val="HasPoints"/>
 
                 <State name="NoPoints">
+                    <When type="Property" frame="$this" Text=""/>
+                    <Action type="SetProperty" frame="$this" Visible="false"/>
+                </State>
+
+                <State name="NoPointsAlt">
                     <When type="Property" frame="$this" Text="0"/>
                     <Action type="SetProperty" frame="$this" Visible="false"/>
                 </State>

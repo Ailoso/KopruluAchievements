@@ -465,7 +465,6 @@
             <Width val="74"/>
             <Height val="77"/>
             <Texture val="@UI/SC2_UI_Battlenet_Achievement_Fanfare_FeatOfStrength_Terr"/>
-            <Visible val="False"/>
             <Alpha val="0"/>
 
             <Animation name="FanfareAnim">
@@ -638,11 +637,9 @@
     <Frame type="Frame" name="AchievementInfoFrameTemplate" template="KL_AchievementFanfaresFrame/FanfareFrameTemplate">
 
         <Frame type="Label" name="Title">
-            <Text val="Achievement Title"/>
         </Frame>
 
         <Frame type="Label" name="Description">
-            <Text val="Description Testing "/>
         </Frame>
 
         <Frame type="Label" name="PointsLabel">
@@ -655,13 +652,13 @@
 
             <StateGroup name="PointsGroup">
                 <State name="NoPoints">
-                    <When type="AnimationState" frame="$this" operator="Equal" PointsGroup="NoPoints"/>
+                    <When type="Property" frame="$this" Visible="False"/>
                     <Action type="SetProperty" frame="$this" Visible="false"/>
                     <Action type="SetProperty" frame="$parent/FeatOfStrengthIcon" Visible="true"/>
                 </State>
 
                 <State name="HasPoints">
-                        <When type="AnimationState" frame="$this" operator="Equal" PointsGroup="HasPoints"/>
+                    <When type="Property" frame="$this" Visible="True"/>
                     <Action type="SetProperty" frame="$this" Visible="true"/>
                     <Action type="SetProperty" frame="$parent/FeatOfStrengthIcon" Visible="false"/>
                 </State>

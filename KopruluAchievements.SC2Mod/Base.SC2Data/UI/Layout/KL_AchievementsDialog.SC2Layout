@@ -46,15 +46,123 @@
             <RenderPriority val="#AchievementsDialogRenderPriority"/>
         </Frame>
 
-        <Frame type="Image" name="PageHeaderBackground">
+        <Frame type="Frame" name="PageHeaderBackground">
             <Anchor side="Top" relative="$parent/TitleBackgroundAnchorFrame" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/TitleBackgroundAnchorFrame" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/TitleBackgroundAnchorFrame" pos="Max" offset="4"/>
             <Width val="1120"/>
-            <Height val="84"/>
-            <Texture val="@UI/Glues_Battlenet_PageAssets_ListHeaderBg"/>
-            <TextureType val="Nineslice"/>
-            <Tiled val="True"/>
+            <Height val="104"/>
             <RenderPriority val="#AchievementsDialogRenderPriority"/>
+            
+            <Frame type="Image" name="LeftOuter">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Texture val="@UI/SC2_UI_UserProfile_HeaderBackground_LeftOuter"/>
+            </Frame>
+            
+            <Frame type="Image" name="LeftCenter">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/LeftOuter" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/LeftInner" pos="Min" offset="0"/>
+                <Texture val="@UI/SC2_UI_UserProfile_HeaderBackground_LeftCenter"/>
+            </Frame>
+            
+            <Frame type="Image" name="LeftInner">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="108"/>
+                <Texture val="@UI/SC2_UI_UserProfile_HeaderBackground_LeftInner"/>
+            </Frame>
+            
+            <Frame type="Image" name="CenterFill">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/LeftInner" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/Right" pos="Min" offset="0"/>
+                <Texture val="@UI/SC2_UI_UserProfile_HeaderBackground_Fill"/>
+            </Frame>
+            
+            <Frame type="Image" name="Right">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Texture val="@UI/SC2_UI_UserProfile_HeaderBackground_Right"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Image" name="RaceHeaderImage">
+            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/PageHeaderBackground" pos="Min" offset="113"/>
+
+            <Texture val="@UI/SC2_UI_UserProfile_HeaderRace_Beta"/>
+            <Width val="996"/>
+            <Height val="80"/>
+            <RenderPriority val="#AchievementsDialogRenderPriority"/>
+        </Frame>
+
+        <Frame type="Frame" name="AvatarFrame" template="KL_UserProfileSummaryTemplates/AvatarFrameMediumTemplate">
+            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="2"/>
+            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="2"/>
+            <Anchor side="Left" relative="$parent/PageHeaderBackground" pos="Min" offset="2"/>
+
+            <RenderPriority val="#AchievementsDialogRenderPriority"/>
+
+            <StateGroup name="IsOnline">
+                <State name="True">
+                    <When type="Property" frame="$BattleUI" IsOnline="True"/>
+
+                    <Action type="SetProperty" frame="$this/PortraitFrame/AvatarImageOnline" Visible="True"/>
+                    <Action type="SetProperty" frame="$this/PortraitFrame/AvatarImageOffline" Visible="False"/>
+                    <Action type="SetProperty" frame="$parent/UserNameLabelOnline" Visible="True"/>
+                    <Action type="SetProperty" frame="$parent/UserNameLabelOffline" Visible="False"/>
+                </State>
+
+                <State name="False">
+                    <When type="Property" frame="$BattleUI" IsOnline="False"/>
+
+                    <Action type="SetProperty" frame="$this/PortraitFrame/AvatarImageOnline" Visible="False"/>
+                    <Action type="SetProperty" frame="$this/PortraitFrame/AvatarImageOffline" Visible="True"/>
+                    <Action type="SetProperty" frame="$parent/UserNameLabelOnline" Visible="False"/>
+                    <Action type="SetProperty" frame="$parent/UserNameLabelOffline" Visible="True"/>
+                </State>
+            </StateGroup>
+        </Frame>
+
+        <Frame type="Label" name="UserNameLabelOnline">
+            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="-13"/>
+            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="-13"/>
+            <Anchor side="Left" relative="$parent/AvatarFrame" pos="Max" offset="22"/>
+
+            <Visible val="False"/>
+            <RenderPriority val="#AchievementsDialogRenderPriority"/>
+            <Style val="Profile_UserName"/>
+            <Text val="{$UserFrameNameLabel/@Text}"/>
+        </Frame>
+
+        <Frame type="Label" name="UserNameLabelOffline">
+            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="-13"/>
+            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="-13"/>
+            <Anchor side="Left" relative="$parent/AvatarFrame" pos="Max" offset="22"/>
+
+            <Visible val="False"/>
+            <RenderPriority val="#AchievementsDialogRenderPriority"/>
+            <Style val="Profile_UserName"/>
+            <Text val="@UI/ScreenUserProfile/UserProfile/OfflinePlayerName"/>
+        </Frame>
+
+        <Frame type="Label" name="AchievementPointsLabel">
+            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="-2"/>
+            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="-2"/>
+            <Anchor side="Right" relative="$parent/PageHeaderBackground" pos="Max" offset="-34"/>
+
+            <RenderPriority val="#AchievementsDialogRenderPriority"/>
+            <Style val="Profile_AchievementPointsTotal"/>
+        </Frame>
+        
+        <Frame type="Image" name="AchievementPointsIcon">
+            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="-2"/>
+            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="-2"/>
+            <Anchor side="Right" relative="$parent/AchievementPointsLabel" pos="Min" offset="-3"/>
+
+            <RenderPriority val="#AchievementsDialogRenderPriority"/>
+            <Texture val="@UI/SC2_UI_UserProfile_HeaderPoints_Total"/>
         </Frame>
 
         <Frame type="Image" name="TitleBackground">
@@ -77,27 +185,6 @@
             <Text val="@UI/ScreenUserProfile/TitleAchievements"/>
             <RenderPriority val="#AchievementsDialogRenderPriority"/>
         </Frame>
-
-        <!--Frame type="AvatarFrame" name="AvatarFrame" template="StandardTemplates/AvatarFrameMediumTemplate">
-            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent/PageHeaderBackground" pos="Min" offset="11"/>
-            <PresenceId val="{$parent/AchievementsFrame/@PresenceId}"/>
-            <BypassOnlineChecks val="true"/>
-            <RenderPriority val="#AchievementsDialogRenderPriority"/>
-        </Frame-->
-
-        <!--Frame type="Label" name="UserNameLabel">
-            <Anchor side="Top" relative="$parent/PageHeaderBackground" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/PageHeaderBackground" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent/AvatarFrame" pos="Max" offset="15"/>
-            <Style val="@Arcade_GameInfo_Title"/>
-            <AcceptsMouseTooltip val="true"/>
-            <Options val="Ellipsis | TooltipIfTruncated | NoWrapping"/>
-            <PreserveAnchorOffset val="true"/>
-            <Text val="{$parent/UserFrame/@DisplayName}"/>
-            <RenderPriority val="#AchievementsDialogRenderPriority"/>
-        </Frame-->
         
         <Frame type="Frame" name="AchievementsFrame" template="KL_AchievementDialogTemplates/UserProfileAchievementsFrameTemplate">
             <Anchor relative="$parent/TabAnchorFrame"/>

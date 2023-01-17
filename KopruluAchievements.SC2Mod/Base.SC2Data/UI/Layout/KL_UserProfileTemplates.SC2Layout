@@ -8,7 +8,6 @@
     =============================
     -->
     <Frame type="Image" name="BackdropTemplate">
-        <Texture val="Assets/Textures/white.dds"/>
         <Color val="0,7,15"/>
         <Alpha val="200"/>
     </Frame>
@@ -383,6 +382,10 @@
     =============================
     -->
     <Frame type="Button" name="VerticalTabButtonTemplate">
+        <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent/$parent/ScrollBarBackground" pos="Min" offset="-5"/>
+
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
         <HitTestFrame val="HitTestFrame"/>
@@ -479,6 +482,20 @@
             <Rotation val="180"/>
             <DesaturateOnDisable val="false"/>
             <RenderPriority val="650"/>
+
+            <StateGroup name="ExpansionState">
+                <State name="Collapsed">
+                    <When type="StateGroup" frame="$parent" ExpansionState="Collapsed"/>
+
+                    <Action type="SetProperty" frame="$this" rotation="180"/>
+                </State>
+
+                <State name="Expanded">
+                    <When type="StateGroup" frame="$parent" ExpansionState="Expanded"/>
+
+                    <Action type="SetProperty" frame="$this" rotation="270"/>
+                </State>
+            </StateGroup>
         </Frame>
 
         <Frame type="Button" name="UntoggleButton">
@@ -491,6 +508,16 @@
             <Frame type="Frame" name="HitTestFrame">
                 <Anchor relative="$parent"/>
             </Frame>
+
+            <Animation name="UntoggleHover">
+                <Event event="MouseEnter" action="DirectionForward,Play" frame="$this"/>
+                <Event event="MouseEnter" action="DirectionReverse,Play" frame="$this"/>
+
+                <Controller type="Property" end="Pause" frame="$parent" property="Hovering">
+                    <Key type="Property" time="0.0" value="False"/>
+                    <Key type="Property" time="0.001" value="True"/>
+                </Controller>
+            </Animation>
         </Frame>
 
         <StateGroup name="ClickSoundState">
@@ -587,6 +614,7 @@
         <Texture val="@UI/SC2_UI_UserProfile_ScrollBar_Background"/>
         <TextureType val="NineSlice"/>
         <Alpha val="255"/>
+        <Unclipped val="true"/>
             
         <StateGroup name="AlphaState">
             <DefaultState val="NotVisible"/>
@@ -628,10 +656,13 @@
         <Width val="12"/>
         <Orientation val="Vertical"/>
         <PreserveAnchorOffset val="True"/>
-
+        <StepValue val="25"/>
+        <Continuous val="true"/>
+        
         <Frame type="Button" name="Button">
             <NormalImage val="NormalImage"/>
-            <HoverImage val="HoverImage"/>
+            <HoverImage val="HoverImage"/>`
+            <Unclipped val="True"/>
 
             <Frame type="Image" name="NormalImage">
                 <Anchor relative="$parent"/>

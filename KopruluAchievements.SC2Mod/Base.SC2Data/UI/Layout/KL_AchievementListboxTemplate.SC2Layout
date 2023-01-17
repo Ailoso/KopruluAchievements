@@ -148,9 +148,9 @@
 
             </Frame>
 
-            <Frame type="Image" name="ScrollBarBackground" template="UserProfileTemplates/ScrollBarBackgroundTemplate"/>
+            <Frame type="Image" name="ScrollBarBackground" template="KL_UserProfileTemplates/ScrollBarBackgroundTemplate"/>
             
-            <Frame type="ScrollBar" name="ScrollBar" template="UserProfileTemplates/ScrollBarTemplate">
+            <Frame type="ScrollBar" name="ScrollBar" template="KL_UserProfileTemplates/ScrollBarTemplate">
                 <Anchor side="Top" relative="$parent/$parent" pos="Min" offset="77"/>
                 <Anchor side="Left" relative="$parent/$parent/ListBoxBackground" pos="Max" offset="2"/>
                 <Anchor side="Bottom" relative="$parent/$parent" pos="Max" offset="-7"/>

@@ -12,20 +12,27 @@
     <Frame type="Frame" name="UserProfileAchievementsFrameTemplate" template="KL_DevPanels/DevAchievementsListboxContainerTemplate">
         
         <Frame type="Frame" name="BackgroundAnchor">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="48"/>
             <Anchor side="Left" relative="$parent/CategoryTabView" pos="Max" offset="8"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         </Frame>
 
+        <!-- 
+            
+            DEVELOPERS ONLY
         
-        <!-- Temporary Panel #1 -->
+            Modify the anchor Positions of the panels in use if required
+        -->
+        
+        <!-- Match Story Panel -->
 
         <Frame type="Frame" name="MatchStoryPanel" template="KL_UserProfileSummaryTemplates/MatchStoryPanelTemplate">
             <Anchor side="Top" relative="$parent/BackgroundAnchor" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$this" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/BackgroundAnchor" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent/AchievementShowcaseContainer" pos="Max" offset="0"/>
+            
             <Visible val="False"/>
         </Frame>
 
@@ -36,6 +43,29 @@
             <Anchor side="Bottom" relative="$this" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/MatchStoryPanel" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent/MatchStoryPanel" pos="Max" offset="0"/>
+
+            <Visible val="False"/>
+        </Frame>
+
+        <!-- Achievement Completion Panel -->
+
+        <Frame type="Frame" name="AchievementProgressPanel" template="KL_UserProfileSummaryTemplates/SummaryAchievementsContainerTemplate">
+            <Anchor side="Top" relative="$parent/BackgroundAnchor" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$this" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BackgroundAnchor" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/AchievementShowcaseContainer" pos="Max" offset="0"/>
+            
+            <Visible val="False"/>
+        </Frame>
+
+        <!-- Campaign Completion Panel -->
+
+        <Frame type="Frame" name="CampaignPanel" template="KL_UserProfileSummaryTemplates/SummaryCampaignContainerTemplate">
+            <Anchor side="Top" relative="$parent/AchievementProgressPanel" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$this" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BackgroundAnchor" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/AchievementShowcaseContainer" pos="Max" offset="0"/>
+
             <Visible val="False"/>
         </Frame>
         

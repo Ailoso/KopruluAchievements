@@ -11,6 +11,6 @@
         <Value>AssetFile;UI\Layout\KL_UserProfileAchievementsFrame.SC2Layout</Value>
         <Value>AssetFile;UI\Layout\KL_AchievementFanfaresFrame.SC2Layout</Value>
         <Value>AssetFile;UI\Layout\KL_StandardTemplates.SC2Layout</Value>
-        <Value>Bank;KLClassic</Value>
+        <Value>Bank;KopruluAchievements</Value>
     </Preload>
 </DocInfo>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-
+    <Include path="UI/Layout/KL_AvatarHack.SC2Layout"/>
     <Include path="UI/Layout/KL_StandardTemplates.SC2Layout"/>
-    <Include path="UI/Layout/KL_LocalizedText.SC2Layout"/>
+    <Include path="UI/Layout/KL_UserProfileSummaryCampaignFrame.SC2Layout"/>
     <Include path="UI/Layout/KL_UserProfileSummaryTemplates.SC2Layout"/>
     <Include path="UI/Layout/KL_AchievementFanfaresFrame.SC2Layout"/>
     <Include path="UI/Layout/KL_UserProfileTemplates.SC2Layout"/>

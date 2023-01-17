@@ -4,8 +4,8 @@
     <CUser id="Achievements">
         <Fields Id="ID" Type="String" EditorColumn="1"/>
         <Fields Id="Icon" Type="Image" EditorColumn="2"/>
-        <Fields Id="Title" Type="String" EditorColumn="3"/>
-        <Fields Id="Description" Type="String" EditorColumn="4"/>
+        <Fields Id="Title" Type="Text" EditorColumn="3"/>
+        <Fields Id="Description" Type="Text" EditorColumn="4"/>
         <Fields Id="Points" Type="Int" EditorColumn="5"/>
         <Fields>
             <Id value="Race"/>
@@ -13,25 +13,23 @@
             <GameLinkType value="Race"/>
             <EditorColumn value="6"/>
         </Fields>
-        <Fields>
-            <Id value="RewardCache"/>
-            <Type value="User"/>
-            <UserType value="Rewards"/>
-            <EditorColumn value="7"/>
-        </Fields>
+        <Fields Id="RewardCache" Type="User" UserType="Rewards"/>
         <Fields>
             <Id value="Series"/>
             <Type value="User"/>
             <UserType value="Achievements"/>
             <Count value="10"/>
-            <EditorColumn value="8"/>
         </Fields>
-        <Fields Id="Required Count" Type="Int" EditorColumn="9"/>
-        <Fields Id="AwardState" Type="String" EditorColumn="10">
+        <Fields Id="Required Count" Type="Int" EditorColumn="10"/>
+        <Fields Id="AwardState" Type="String">
             <Flags index="Modifiable" value="1"/>
         </Fields>
         <Fields Id="Category" Type="Int" EditorColumn="11"/>
-        <Fields Id="IsSeriesStart" Type="String" EditorColumn="12"/>
+        <Fields Id="IsPartofSeries" Type="String"/>
+        <Fields Id="Criteria" Type="String"/>
+        <Fields Id="Current Count" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
         <Instances Id="[Default]">
             <GameLink GameLink="Terr">
                 <Field Id="Race"/>
@@ -45,14 +43,8 @@
             <Int Int="1">
                 <Field Id="Category"/>
             </Int>
-            <String String="Achievement Description">
-                <Field Id="Description"/>
-            </String>
             <String String="TIns00">
                 <Field Id="ID"/>
-            </String>
-            <String String="AchievementTitle">
-                <Field Id="Title"/>
             </String>
             <User Type="Rewards" Instance="[Default]">
                 <Field Id="RewardCache"/>
