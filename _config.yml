@@ -9,3 +9,6 @@ theme_color: '#025775'
 fixed_navbar: top
 
 remote_theme: chrisrhymes/bulma-clean-theme
+
+markdown: kramdown
+highlighter: rouge
