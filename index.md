@@ -7,10 +7,10 @@ show sidebar: false
 
 ## Achievement Libraries
 
-The Koprulu Achievement Libraries will provide support and guide for Mapmakers to add custom Achievements,
+The Koprulu Achievement Libraries will provide support and a guide for Mapmakers to add custom Achievements,
 display toast animations and show them off in their User Profile.
 
-For Full Instructions on how to use, please follow the [Documentation](/KopruluAchievements/docs/)
+For Full Instructions on how to use it, please follow the [Documentation](/KopruluAchievements/docs/)
 
 ## Download
 **V1.0 is Out Now!**
@@ -20,11 +20,11 @@ For Full Instructions on how to use, please follow the [Documentation](/KopruluA
 
 ###### Page Under Construction
 
-Some Documentation May be Missing as we are throughly updating it.
+Some Documentation may be missing as we are currently updating it.
 
 ## Supported Features
 
-Current features available.
+The Current features available.
 
 <div class="columns">
 <div class="column is-6">
@@ -39,26 +39,26 @@ Libraries in Action
 
 * **Achievement Toasts**
 
-    - Supports for all 3 Race Styles
+    - Supports on all 3 Race Styles
     - Fully Animated
 
 * **User Profile**
 
     - Achievement List Display
     - Recent Achievements
-    - Displays a Custom avatar while offline
+    - Displays Custom avatar while offline
     - Displays Player avatar while online
-    - Campaign Completion (Optional)
     - Achievement Completion (Optional)
+    - Campaign Completion (Optional)
     - Career Stats (Optional)
     - Last Match Display (Optional)
 
 * **Achievement Items**
 
+    - Hidden Feats of Strength
+    - Progress Bars
     - Regular
     - Series
-    - Progress Bars
-    - Hidden Feats of Strength
 
 * **Menu Button**
 
