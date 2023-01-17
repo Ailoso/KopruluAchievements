@@ -15,6 +15,9 @@ For Full Instructions, please follow the [Documentation](/KopruluAchievements/do
 [![Version](https://img.shields.io/badge/Release-1.0-brightgreen)](https://github.com/Ailoso/KopruluAchievements)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Ailoso/KopruluAchievements?style=social)
 
+###### Page Under Construction
+**V1.0 is not yet Released**
+
 ## Supported Features
 
 Current available features.
@@ -62,4 +65,4 @@ Libraries in Action
 </div>
 </div>
 
-###### Page Under Construction
+
