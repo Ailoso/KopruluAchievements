@@ -13,6 +13,8 @@ Some basic Layouts knowledge is required for this part.
 
 Listboxes are containers housing individual Achievement Items, the number next to their name corresponds to the ID used when placing achievement in their containers.
 
+They are composed of a Container Frame featuring a ScrollBar that becomes active once there's more than 5 Items and a Frame counting the total earned and earnable points, these are counted automatically by the libraries and require no additional setup.
+
 <div class="columns">
 <div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/yoV0K3gl.png" alt="Example image" large_link="https://i.imgur.com/yoV0K3g.png" %}
@@ -399,4 +401,4 @@ End Result
 </div>
 
 
-Now you should be able to launch a map, access the menu by pressing F11 and view your progress, next Achievements are getting added to display something inside the Listboxes. [Adding Basic Achievements](/KopruluAchievements/docs/achi-setup/basic-achievements/)
+Now you should be able to launch a map, access the menu by pressing F9 and view your progress, next Achievements are getting added to display something inside the Listboxes. [Adding Basic Achievements](/KopruluAchievements/docs/achi-setup/basic-achievements/)

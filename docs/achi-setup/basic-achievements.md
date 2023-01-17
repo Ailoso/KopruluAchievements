@@ -35,7 +35,7 @@ Starting Top to Bottom we start configuring, you may ignore any properties not l
 
 * **Category:** This Integer should match with your Listbox ID, attempting to go over the amount of available Listboxes will cause errors.
 * **Description:** A concise Description of the Requirements of your Achievement, this is readable to the User from the User Profile and Toast
-* **Icon:** The Achievement's Icon image, for optimal Quality a 112x112 image is recommended, only set the Image Value
+* **Icon:** The Achievement's Icon image, for optimal Quality a 112x112 image is recommended, only the image value is required
 * **ID:** This ID is what is saved to player's Banks, Less than 10 characters are recommended with no Special Characters
 * **Points:** The Amount of points gained from earning the Achievement, if the value is set to 0 it will become a hidden Feat of Strength
 * **Race:** This property is what sets the Race style of the Achievement Toast, it has no effect on anything else
