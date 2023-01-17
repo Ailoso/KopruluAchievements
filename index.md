@@ -9,7 +9,7 @@ show sidebar: false
 
 The Koprulu Achievement Libraries provide support for Mapmakers to add custom Achievements, display toast animations and show them off in their User Profile.
 
-For Full Instructions, please follow the [Documentation](/kopruluAchievements/docs/)
+For Full Instructions, please follow the [Documentation](/KopruluAchievements/docs/)
 
 ## Download
 [![Version](https://img.shields.io/badge/Release-1.0-brightgreen)](https://github.com/Ailoso/KopruluAchievements)
