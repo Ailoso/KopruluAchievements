@@ -3,4 +3,6 @@
   items:
     - name: Installation
       link: /docs/setup/installation/
+    - name: Configuration
+      link: /docs/setup/configuration/
 - label: 

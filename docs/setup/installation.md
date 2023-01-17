@@ -4,7 +4,7 @@ title: Installation
 subtitle: Getting Started
 menubar: docs_menu
 show_sidebar: false
-toc: true
+toc: false
 ---
 
 ## Add the Extension to Your Map/Mod
@@ -17,3 +17,6 @@ Place the folder `KopruluAchievements.SC2Mod` in the Starcraft 2 Installation Fo
 
 Open your Core Mod file or your Map file, Navigate to the top left menu > File > Dependencies and Add the Koprulu Achievements modfile.
 
+{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+
+Now you've finished adding the mod to your Map/Mod follow the [Configuration](/kopruluAchievements/docs/setup/configuration/) step next.
