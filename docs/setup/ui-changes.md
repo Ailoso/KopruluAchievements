@@ -399,4 +399,4 @@ End Result
 </div>
 
 
-Now you should be able to launch a map, access the menu by pressing F11 and view your progress, next Achievements are getting added to display something inside the Listboxes. [Installation](/KopruluAchievements/docs/setup/installation/)
+Now you should be able to launch a map, access the menu by pressing F11 and view your progress, next Achievements are getting added to display something inside the Listboxes. [Adding Basic Achievements](/KopruluAchievements/docs/achi-setup/basic-achievements/)

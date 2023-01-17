@@ -9,9 +9,9 @@
       link: /docs/setup/ui-changes/
 - label: Adding Achievements
   items:
-    - name: Adding Basic Achievements
+    - name: Basic Achievements
       link: /docs/achi-setup/basic-achievements/
-    - name: Adding Progress Achievements
+    - name: Progress
       link: /docs/achi-setup/progress-achievements/
-    - name: Adding Series Achievements
+    - name: Series
       link: /docs/achi-setup/series-achievements/
