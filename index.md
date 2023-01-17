@@ -5,6 +5,10 @@ layout: page
 show sidebar: false
 ---
 
+###### Page Under Construction
+
+Some Documentation may be missing as we are currently updating it.
+
 ## Achievement Libraries
 
 The Koprulu Achievement Libraries will provide support and a guide for Mapmakers to add custom Achievements,
@@ -17,10 +21,6 @@ For Full Instructions on how to use it, please follow the [Documentation](/Kopru
 
 [![Version](https://img.shields.io/badge/Release-1.0-brightgreen)](https://github.com/Ailoso/KopruluAchievements/releases/tag/Release)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Ailoso/KopruluAchievements?style=social)
-
-###### Page Under Construction
-
-Some Documentation may be missing as we are currently updating it.
 
 ## Supported Features
 
@@ -38,32 +38,26 @@ Libraries in Action
 </div>
 
 * **Achievement Toasts**
-
     - Fully Animated
     - Supports on all 3 Race Styles
 
 * **User Profile**
-
     - Achievement List Display
     - Recent Achievements
-
     - Displays Custom avatar while offline
     - Displays Player avatar while online
-    
     - Achievement Completion (Optional)
     - Campaign Completion (Optional)
     - Career Stats (Optional)
     - Last Match Display (Optional)
 
 * **Achievement Items**
-
     - Hidden Feats of Strength
     - Progress Bars
     - Regular
     - Series
 
 * **Menu Button**
-
     - Supports Console Skins
     - Supports Custom MenuBar Hotkey
 
