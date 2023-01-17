@@ -12,11 +12,13 @@ The Koprulu Achievement Libraries provide support for Mapmakers to add custom Ac
 For Full Instructions, please follow the [Documentation](/KopruluAchievements/docs/)
 
 ## Download
-[![Version](https://img.shields.io/badge/Release-1.0-brightgreen)](https://github.com/Ailoso/KopruluAchievements)
+**V1.0 is Out Now!**
+
+[![Version](https://img.shields.io/badge/Release-1.0-brightgreen)](https://github.com/Ailoso/KopruluAchievements/releases/tag/Release)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Ailoso/KopruluAchievements?style=social)
 
 ###### Page Under Construction
-**V1.0 is not yet Released**
+Some Documentation May be Missing
 
 ## Supported Features
 
@@ -24,7 +26,7 @@ Current available features.
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/oFdV0yTl.png" alt="Example image" large_link="https://i.imgur.com/oFdV0yT.png" %}
 
 Libraries in Action
 </div>
@@ -48,20 +50,20 @@ Libraries in Action
     - Regular
     - Series
     - Progress Bars
-    - Rewards
-    - Criteria
-    - Feat of Strength
+    - Hidden Feats of Strength
 * **Menu Button**
     - Supports Console Skins
-    - Supports Custom Hotkey
+    - Supports Custom MenuBar Hotkey
 * **Fully Localizable Text**
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/QGrWK9Kl.png" alt="Example image" large_link="https://i.imgur.com/QGrWK9K.png" %}
+User Profile Achievement Listbox
 </div>
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/Bwc3t2dl.png" alt="Example image" large_link="https://i.imgur.com/Bwc3t2d.png" %}
+User Profile Sumar
 </div>
 </div>
 
