@@ -46,20 +46,13 @@ Libraries in Action
     - Supports Custom Hotkey
 * **Fully Localizable Text**
 
----
-- title: Image Gallery Title
-  images:
-    - link: https://via.placeholder.com/800x450
-      large_link: https://via.placeholder.com/1200x675
-      alt: The alt text for the image
-      description: |-
-        The image description can be written in **markdown** if required
-      ratio: is-16by9
-    - link: https://via.placeholder.com/800x600
-      large_link: https://via.placeholder.com/1200x900
-      alt: The alt text for the image
-      description: The image description
-      ratio: is-4by3
----
+<div class="columns">
+<div class="column is-6">
+{% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+</div>
+<div class="column is-6">
+Click on the image to open the image modal.
+</div>
+</div>
 
 ###### Page Under Construction
