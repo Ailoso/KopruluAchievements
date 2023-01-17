@@ -19,7 +19,7 @@ Open your Core Mod file or your Map file, Navigate to the `Top Left Fenu > File 
 
 <div class="columns">
 <div class="column is-6">
-{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/JjvWFTym.png" alt="Example image" large_link="https://i.imgur.com/JjvWFTy.png" %}
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/JjvWFTyl.png" alt="Example image" large_link="https://i.imgur.com/JjvWFTy.png" %}
 
 Dependencies List
 </div>
