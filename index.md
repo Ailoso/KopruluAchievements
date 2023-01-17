@@ -20,6 +20,7 @@ For Full Instructions, please follow the [Documentation](/kopruluAchievements/do
 Current available features.
 
 {% include image-modal.html ratio="is-16by9" link="https://via.placeholder.com/400x225" alt="Example image" large_link="https://via.placeholder.com/1200x675" %}
+Libraries in Action
 
 * **Achievement Toasts**
     - Support for all 3 Race Styles
@@ -45,6 +46,7 @@ Current available features.
     - Supports Custom Hotkey
 * **Fully Localizable Text**
 
+---
 - title: Image Gallery Title
   images:
     - link: https://via.placeholder.com/800x450
@@ -58,5 +60,6 @@ Current available features.
       alt: The alt text for the image
       description: The image description
       ratio: is-4by3
+---
 
 ###### Page Under Construction
