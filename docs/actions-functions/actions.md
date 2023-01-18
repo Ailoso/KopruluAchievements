@@ -11,7 +11,7 @@ toc: true
 
 The Achievement Libraries contain a number of Custom Actions used by Developers in order to Award, Add Progress and in general Interact with the User Profile Menu.
 
-They are as follows
+They are as follows:
 
 ## Initialize Achievements
 
@@ -23,9 +23,9 @@ This action can be used to open the User Profile as part of a custom button or g
 
 **Grammar**
 
-Show User Profile for Player `Player`
+Show User Profile for Player `Player`.
 
-It is only required to set a triggering `Player` for this action
+It is only required to set a triggering `Player` for this action.
 
 ## Award Achievement
 
@@ -34,7 +34,7 @@ Used to Award any regular achievement, this action will take care of saving to B
 **Grammar**
 Award Achievement `Achievement` (`Player`)
 
-The two Parameters used in this action are for an `Achievement` Instance Value and awarding `Player`
+The two Parameters used in this action are for an `Achievement` Instance Value and awarding `Player`.
 
 ## Update Achievement Progress
 

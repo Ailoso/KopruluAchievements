@@ -15,13 +15,13 @@ Achievements Beta 0.4 (24-10-2021)
 Currently Supports:
 - Achievement Awarding Animations
 - Achievement Race Styles
-- Blizz-like Achievement Display
 - Automatic data fetching and sorting
-- Support for up to 8 players
-- Recently Earned Achievement Display
+- Blizz-like Achievement Display
 - Custom Button in the Game Menu, Hotkey (F11)
-- Stat and Last Match Displays
 - Game Pause
+- Recently Earned Achievement Display
+- Stat and Last Match Displays
+- Support for up to 8 players
 
 ## Screenshots
 * Some screenshots were taken during the Development of UED:First Light.

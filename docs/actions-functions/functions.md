@@ -16,7 +16,7 @@ They are as follows
 
 ## Player Has Achievement
 
-This return function can be used to read the Completion state fo an Achievement
+This return function can be used to read the Completion state fo an Achievement.
 
 Can Return a `True` or `False` valeu depending on completion Sate.
 
@@ -24,4 +24,4 @@ Can Return a `True` or `False` valeu depending on completion Sate.
 
 This return function is used to read the Current Completion Progress of an Achievement.
 
-Returns the Current `Integer` Value of an Achievement's Progress Bar
+Returns the Current `Integer` Value of an Achievement's Progress Bar.
