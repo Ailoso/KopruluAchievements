@@ -7,13 +7,13 @@ show_sidebar: false
 toc: true
 ---
 
-## Setting up Values
+## Setting up The Values
 
-Next is configuring the default variables that control several aspects of the libraries, these values should be updated with each new release.
+Next is configuring the default variables that control several aspects of the libraries, these values must be updated with each new release to function properly.
 
 Start by opening the `KopruluAchievements` folder and launching the `ComponentList.SC2Components` file to open the mod.
 
-Navigate to the folder `Creator Only > Variables` in here you will find the variables you need to modify.
+Now Navigate to the folder `Creator Only > Variables` in here you will find the variables you need to modify.
 
 <div class="columns">
 <div class="column is-6">
@@ -35,9 +35,9 @@ Go to `KL_MaxAvailableLists` and set it to the number of categories you're gonna
 
 These values are important for optimization purposes.
 
-## Add Preload Info
+## Adding Preload Info
 
-If you have not yet set a Preload Info in your Mod/Map you can add it at this point by heading to the `Top Bar > Mod > Preload Info` or `Top Bar > Map > Preload Info` depending on your case.
+If you have not yet set a Preload Info on your Mod/Map you can add it at this point by heading to the `Top Bar > Mod > Preload Info` or `Top Bar > Map > Preload Info` depending on your case.
 
 <div class="columns">
 <div class="column is-6">
@@ -72,4 +72,4 @@ List Example
 </div>
 </div>
 
-At this point you may receive some UI errors and only the default lists may display, but don't worry we'll continue on [UI Modification](/KopruluAchievements/docs/setup/ui-changes/)
+At this point you may receive some UI errors and only the default lists may display, but don't worry we'll continue on [UI Modification](/KopruluAchievements/docs/setup/ui-changes/) to solve your needs.
