@@ -10,5 +10,8 @@ fixed_navbar: top
 
 remote_theme: chrisrhymes/bulma-clean-theme
 
+plugins:
+  - kramdown-parser-gfm
+
 markdown: kramdown
 highlighter: rouge
