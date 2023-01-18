@@ -76,3 +76,7 @@ User Profile Summary
 
 </div>
 </div>
+
+<div style="text-align:center">
+{% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/Bwc3t2dl.png" alt="Example image" large_link="https://i.imgur.com/Bwc3t2d.png" %}
+</div>.
