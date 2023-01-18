@@ -9,7 +9,7 @@ toc: true
 
 ## Intro
 
-Achievement Data is added by adding Instances in the `Koprulu - Achievements` UserType in your core Mod or Map's Data, ideally it should be contained in a mod or if there is a single Map in your game it can remain in the Map itself, this is to facilitate Updates without requiring to Migrate data from the `KopruluAchievements` Mod.
+Achievement Data is added by adding an Instances in the `Koprulu - Achievements` UserType in your core Mod or Map's Data, ideally it should be contained in a mod or if there is a single Map in your game it can remain in the Map itself, this is to facilitate Updates without requiring to Migrate data from the `KopruluAchievements` Mod.
 
 Libraries handle Display and Order by themselves only requiring the Data to be added properly.
 

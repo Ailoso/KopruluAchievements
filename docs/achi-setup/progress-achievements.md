@@ -17,6 +17,6 @@ They can also combine with series to track a much larger count, though that feat
 
 These require the same basic values as a Basic Achievement only needing the `Required Count` value to be set. 
 
-Once done a progess bar will be displayed in the Expanded Content when clicking an achievement, progress is displayed automatically
+Once done a progess bar will be displayed in the Expanded Content when clicking an achievement, progress is displayed automatically.
 
-You may view related Fuctions or Actions for Progress Achievements
+You may view related Fuctions or Actions for Progress Achievements.
