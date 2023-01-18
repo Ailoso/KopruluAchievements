@@ -9,7 +9,7 @@ toc: true
 
 ## Listbox Setup
 
-Some basic Layouts knowledge is required for this part.
+Some Basic Layout knowledge is required for this part.
 
 Listboxes are containers housing individual Achievement Items, the number next to their name corresponds to the ID used when placing achievement in their containers.
 
@@ -25,7 +25,7 @@ Listbox Sample
 </div>
 </div>
 
-Open the KopruluAchievements.SC2Mod Folder and using a text editor (preferably VSC along with the SC2Layout plugin, link tutorial here).
+Open the KopruluAchievements.SC2Mod Folder and using a text editor (preferably VSC along with the SC2Layout plugin, link tutorial (here).
 Navigate to the folder `Base.SC2Data > UI > Layout` in here open the file `KL_DevPanels.SC2Layout`.
 
 <div class="columns">
@@ -38,7 +38,7 @@ Target Folder
 </div>
 </div>
 
-Find the section labeled `User Profile Achievement Listboxes`, under it there’s a frame called `DevAchievementsListboxContainerTemplate` containing a sample of 4 active listboxes, if more were required simply copy paste one of the frames under it and increase the number.
+Find the section labeled `User Profile Achievement Listboxes`, under it there’s a frame called `DevAchievementsListboxContainerTemplate` containing a sample of 4 active listboxes, if more is required simply copy and paste one of the frames under it and increase the number.
 
 The Handle Property must also have it’s value increased
 
@@ -47,7 +47,7 @@ The Handle Property must also have it’s value increased
         <Handle val="Listbox05"/>
     </Frame>
 ```
-If one must be removed, make sure to update the number of Listboxes in the Variables from the previous section are also updated.
+If one must be removed, make sure to update the number of Listboxes in the Variables from the previous section which are also updated.
 
 ## Tree View List Button
 
@@ -130,7 +130,7 @@ These buttons contain submenus and adding one consists of a few more steps
         </State>
     </StateGroup>
 ```
-This state requires no events and controls the visibility of the SubTabGroup it is attached to, set the name to the number of Subtab Groups you have, you will have to later match this name, your code should now look similar to this.
+This state requires no events and controls, the visibility of the SubTabGroup it is attached to set the name to the number of Subtab Groups you have, you will have to later match this name, your code should now look similar to this.
 
 ```XML
     <Frame type="Button" name="TabButton2" template="KL_UserProfileTemplates/VerticalTabArrowButtonTemplate">
