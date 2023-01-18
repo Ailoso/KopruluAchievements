@@ -72,11 +72,7 @@ User Profile Achievement Listbox
 <div class="column is-6">
 {% include image-modal.html ratio="is-16by9" link="https://i.imgur.com/Bwc3t2dl.png" alt="Example image" large_link="https://i.imgur.com/Bwc3t2d.png" %}
 
-User Profile Summarys
+User Profile Summary
 
 </div>
 </div>
-
-![HolaGato](https://i.imgur.com/oFdV0yTl.png)
-
-
