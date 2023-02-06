@@ -21,3 +21,9 @@
       link: /docs/actions-functions/actions/
     - name: Functions
       link: /docs/actions-functions/functions/
+- label: New Version Update
+  items:
+    - name: Data Backup
+      link: /docs/updating/backup/
+    - name: Migration
+      link: /docs/updating/migrating/

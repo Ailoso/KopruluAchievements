@@ -23,6 +23,8 @@ This action sets the Achievement Toast Style per player, `Required` to be placed
 
 By default the style is set to Terran.
 
+This actions takes in a `Race` Paramter as well as a `Player` Parameter, currently only `Terran, Zerg and Protoss` Styles are available
+
 ## Show User Profile
 
 This action can be used to open the User Profile as part of a custom button or game action, while in SinglePlayer the menu will pause the game until closed.
