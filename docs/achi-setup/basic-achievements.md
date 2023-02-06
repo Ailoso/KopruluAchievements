@@ -38,7 +38,6 @@ Starting Top to Bottom we start configuring, you may ignore any properties not l
 * **Icon:** The Achievement's Icon image, for optimal Quality a 112x112 image is recommended, only the image value is required
 * **ID:** This ID is what is saved to player's Banks, Less than 10 characters are recommended with no Special Characters
 * **Points:** The Amount of points gained from earning the Achievement, if the value is set to 0 it will become a hidden Feat of Strength
-* **Race:** This property is what sets the Race style of the Achievement Toast, it has no effect on anything else
 * **Title:** The name of your Achievement, only rule is to not make it overflow out of the frame, does not support double lines
 
 The display order is dictated by the order from top to bottom, though it does not matter if there are achievements from different categories mixed together.
@@ -46,3 +45,5 @@ The display order is dictated by the order from top to bottom, though it does no
 The "Expanded Content" feature can be seen when a + sign is displayed in an achievement, this "Content" means it can be clicked and expanded to view additional info such as Series, Criteria, Progress and Rewards, how these are set can be seen in their respective Sections.
 
 You may view related Fuctions or Actions for Basic Achievements
+
+`Note:` Race Toast Style has been moved to it's own action which sets it globally per player.

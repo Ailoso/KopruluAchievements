@@ -29,6 +29,9 @@ void libAE8FC9D3_InitVariables () {
         libAE8FC9D3_gv_kL_AchievementIndexing[init_i] = 20;
     }
     for (init_i = 0; init_i <= libAE8FC9D3_gv_kL_MaxPlayers; init_i += 1) {
+        libAE8FC9D3_gv_kL_ToastStyle[init_i] = libAE8FC9D3_ge_KLAchievementToastStyle_Terran;
+    }
+    for (init_i = 0; init_i <= libAE8FC9D3_gv_kL_MaxPlayers; init_i += 1) {
         libAE8FC9D3_gv_kL_AchievementFanfarePanel[init_i].lv_fanfareContainer = c_invalidDialogControlId;
         for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
             libAE8FC9D3_gv_kL_AchievementFanfarePanel[init_i].lv_achievementFrames[init_i1] = c_invalidDialogControlId;
@@ -258,6 +261,12 @@ void libAE8FC9D3_gf_SetAchievementCompletionValue (fixed lp_value, int lp_player
     libAE8FC9D3_gf_KL_SetAchievementCompletion(lp_value, lp_player);
 }
 
+void libAE8FC9D3_gf_SetToastStyle (int lp_player, int lp_style) {
+    // Automatic Variable Declarations
+    // Implementation
+    libAE8FC9D3_gv_kL_ToastStyle[lp_player] = lp_style;
+}
+
 bool libAE8FC9D3_gf_PlayerHasAchievement (int lp_player, string lp_achievement) {
     // Automatic Variable Declarations
     // Implementation
@@ -413,7 +422,7 @@ int libAE8FC9D3_gf_ReturnAchievementProgress (int lp_player, string lp_achieveme
         return 0;
     }
 
-    lv_int = UserDataGetInt("Achievements", lp_achievement, "Current Count", 1);
+    lv_int = UserDataGetInt("Achievements", lp_achievement, "Current Count", lp_player);
     return lv_int;
 }
 
@@ -564,10 +573,10 @@ void libAE8FC9D3_gf_KL_BankLoad (int lp_Player) {
     lv_index = 1;
     for ( ; ( (auto79C994B7_ai >= 0 && lv_index <= auto79C994B7_ae) || (auto79C994B7_ai < 0 && lv_index >= auto79C994B7_ae) ) ; lv_index += auto79C994B7_ai ) {
         if ((libAE8FC9D3_gf_PlayerHasAchievement(lp_Player, UserDataInstance("Achievements", lv_index)) == true)) {
-            UserDataSetString("Achievements", UserDataInstance("Achievements", lv_index), "AwardState", 1, "Awarded");
+            UserDataSetString("Achievements", UserDataInstance("Achievements", lv_index), "AwardState", lp_Player, "Awarded");
         }
         else {
-            UserDataSetString("Achievements", UserDataInstance("Achievements", lv_index), "AwardState", 1, "Not Awarded");
+            UserDataSetString("Achievements", UserDataInstance("Achievements", lv_index), "AwardState", lp_Player, "Not Awarded");
         }
     }
 }
@@ -883,10 +892,15 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player) {
                 if ((libAE8FC9D3_gf_KL_ReturnAchievementProgressUser(lp_player, lv_achievementInstance) > 0)) {
                 }
                 else {
-                    auto68D7BD51_ae = libAE8FC9D3_gf_KL_ReturnAchievementSeriesSize(lv_achievementInstance);
-                    auto68D7BD51_var = 0;
-                    for ( ; auto68D7BD51_var <= auto68D7BD51_ae; auto68D7BD51_var += 1 ) {
-                        UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(auto68D7BD51_var, lv_achievementInstance), "Current Count", 1, libAE8FC9D3_gf_KL_ReturnAchievementProgressBank(lp_player, libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(auto68D7BD51_var, lv_achievementInstance)));
+                    if ((libAE8FC9D3_gf_KL_ReturnAchievementSeriesSize(lv_achievementInstance) > 0)) {
+                        auto68D7BD51_ae = libAE8FC9D3_gf_KL_ReturnAchievementSeriesSize(lv_achievementInstance);
+                        auto68D7BD51_var = 0;
+                        for ( ; auto68D7BD51_var <= auto68D7BD51_ae; auto68D7BD51_var += 1 ) {
+                            UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(auto68D7BD51_var, lv_achievementInstance), "Current Count", 1, libAE8FC9D3_gf_KL_ReturnAchievementProgressBank(lp_player, libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(auto68D7BD51_var, lv_achievementInstance)));
+                        }
+                    }
+                    else {
+                        UserDataSetInt("Achievements", lv_achievementInstance, "Current Count", lp_player, libAE8FC9D3_gf_KL_ReturnAchievementProgressBank(lp_player, lv_achievementInstance));
                     }
                 }
                 if ((libAE8FC9D3_gf_KL_ReturnAchievementSeriesSize(lv_achievementInstance) > 0)) {
@@ -983,7 +997,7 @@ void libAE8FC9D3_gf_KL_UpdateAchievementItemData (int lp_player) {
                 libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)].lv_description[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], UserDataGetText("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesDisplayIndex, lv_achievementInstance), "Description", 1), PlayerGroupSingle(lp_player));
                 libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)].lv_pointsLabel[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], IntToText(lv_seriesItemPoints), PlayerGroupSingle(lp_player));
                 if ((libAE8FC9D3_gf_KL_ReturnAchievementProgressUser(lp_player, lv_achievementInstance) > 0)) {
-                    libNtve_gf_SetDialogItemCurrentValue(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)].lv_progressBar[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], IntToFixed(UserDataGetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesDisplayIndex, lv_achievementInstance), "Current Count", 1)), PlayerGroupSingle(lp_player));
+                    libNtve_gf_SetDialogItemCurrentValue(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)].lv_progressBar[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], IntToFixed(UserDataGetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesDisplayIndex, lv_achievementInstance), "Current Count", lp_player)), PlayerGroupSingle(lp_player));
                     libNtve_gf_SetDialogItemMaximumValue(libAE8FC9D3_gv_kL_AchievementListbox[lp_player][libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)].lv_progressBar[libAE8FC9D3_gv_kL_AchievementIndexing[libAE8FC9D3_gf_KL_ReturnCategoryIDofAchievement(lv_userI)]], IntToFixed(libAE8FC9D3_gf_ReturnAchievementProgressMax(libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesDisplayIndex, lv_achievementInstance))), PlayerGroupSingle(lp_player));
                 }
 
@@ -1383,16 +1397,16 @@ void libAE8FC9D3_gf_KL_UpdateAchiProgress (string lp_achievement, int lp_valueIn
                     lv_seriesCurrentValue = lv_seriesMaxValue;
                 }
 
-                UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesIndex, lp_achievement), "Current Count", 1, lv_seriesCurrentValue);
+                UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesIndex, lp_achievement), "Current Count", lp_player, lv_seriesCurrentValue);
                 BankValueSetFromInt(libAE8FC9D3_gf_ReturnPlayerBank(lp_player), libAE8FC9D3_gv_kL_AchievementSectionConstant, (UserDataGetString("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesIndex, lp_achievement), "ID", 1) + "Progress"), lv_seriesCurrentValue);
             }
             else {
                 if ((lv_seriesCurrentValue > lv_seriesMaxValue)) {
                     lv_seriesCurrentValue = lv_seriesMaxValue;
-                    UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesIndex, lp_achievement), "Current Count", 1, lv_seriesCurrentValue);
+                    UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesIndex, lp_achievement), "Current Count", lp_player, lv_seriesCurrentValue);
                 }
                 else {
-                    UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesIndex, lp_achievement), "Current Count", 1, lv_seriesCurrentValue);
+                    UserDataSetInt("Achievements", libAE8FC9D3_gf_KL_ReturnAchievementSeriesIteminIndex(lv_seriesIndex, lp_achievement), "Current Count", lp_player, lv_seriesCurrentValue);
                 }
             }
             if ((lv_seriesCurrentValue == lv_seriesMaxValue)) {
@@ -1405,7 +1419,7 @@ void libAE8FC9D3_gf_KL_UpdateAchiProgress (string lp_achievement, int lp_valueIn
             }
 
         }
-        libAE8FC9D3_gf_KL_UpdateUserProfile(1);
+        libAE8FC9D3_gf_KL_UpdateUserProfile(lp_player);
         if ((lp_saveToBank == true)) {
             libAE8FC9D3_gf_KL_BankSave(lp_player, true);
         }
@@ -1417,17 +1431,17 @@ void libAE8FC9D3_gf_KL_UpdateAchiProgress (string lp_achievement, int lp_valueIn
                 lv_currentValue = lv_maxValue;
             }
 
-            UserDataSetInt("Achievements", lp_achievement, "Current Count", 1, lv_currentValue);
+            UserDataSetInt("Achievements", lp_achievement, "Current Count", lp_player, lv_currentValue);
             BankValueSetFromInt(libAE8FC9D3_gf_ReturnPlayerBank(lp_player), libAE8FC9D3_gv_kL_AchievementSectionConstant, (UserDataGetString("Achievements", lp_achievement, "ID", 1) + "Progress"), lv_currentValue);
             libAE8FC9D3_gf_KL_BankSave(lp_player, true);
         }
         else {
             if ((lv_currentValue > lv_maxValue)) {
                 lv_currentValue = lv_maxValue;
-                UserDataSetInt("Achievements", lp_achievement, "Current Count", 1, lv_currentValue);
+                UserDataSetInt("Achievements", lp_achievement, "Current Count", lp_player, lv_currentValue);
             }
             else {
-                UserDataSetInt("Achievements", lp_achievement, "Current Count", 1, lv_currentValue);
+                UserDataSetInt("Achievements", lp_achievement, "Current Count", lp_player, lv_currentValue);
             }
             libAE8FC9D3_gf_KL_UpdateUserProfile(1);
         }
@@ -1459,7 +1473,7 @@ void libAE8FC9D3_gf_KL_AwardAchi (string lp_achievement, int lp_player) {
     libAE8FC9D3_gf_KL_StoreAchievementKey(lp_player, lp_achievement);
     DialogControlSendAnimationEvent(libAE8FC9D3_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "Show");
     libAE8FC9D3_gf_KL_DisplayAchievement(lp_achievement, lp_player);
-    UserDataSetString("Achievements", lp_achievement, "AwardState", 1, "Awarded");
+    UserDataSetString("Achievements", lp_achievement, "AwardState", lp_player, "Awarded");
     TriggerSendEvent("KL_AchievementAwarded");
     autoA9B8164C_val = lp_player;
     if (autoA9B8164C_val == 1) {
@@ -1662,7 +1676,7 @@ bool auto_libAE8FC9D3_gf_KL_DisplayAchievement_TriggerFunc (bool testConds, bool
     bool auto246BDD06_val;
     const int auto354DEA22_ae = 0;
     const int auto354DEA22_ai = -1;
-    string auto83E8DCE2_val;
+    int auto83E8DCE2_val;
 
     // Variable Initialization
     lv_maxAchievements = 4;
@@ -1705,14 +1719,14 @@ bool auto_libAE8FC9D3_gf_KL_DisplayAchievement_TriggerFunc (bool testConds, bool
         DialogControlSetVisible(libAE8FC9D3_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lv_inactiveIndex], PlayerGroupSingle(lp_player), true);
         libNtve_gf_SetDialogItemText(libAE8FC9D3_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lv_inactiveIndex], IntToText(UserDataGetInt("Achievements", lp_achievement, "Points", 1)), PlayerGroupSingle(lp_player));
     }
-    auto83E8DCE2_val = UserDataGetGameLink("Achievements", lp_achievement, "Race", 1);
-    if (auto83E8DCE2_val == "Terr") {
+    auto83E8DCE2_val = libAE8FC9D3_gv_kL_ToastStyle[lp_player];
+    if (auto83E8DCE2_val == libAE8FC9D3_ge_KLAchievementToastStyle_Terran) {
         DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_inactiveIndex], PlayerGroupSingle(lp_player), "StyleStateGroup", "TerranState");
     }
-    else if (auto83E8DCE2_val == "Zerg") {
+    else if (auto83E8DCE2_val == libAE8FC9D3_ge_KLAchievementToastStyle_Zerg) {
         DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_inactiveIndex], PlayerGroupSingle(lp_player), "StyleStateGroup", "ZergState");
     }
-    else if (auto83E8DCE2_val == "Prot") {
+    else if (auto83E8DCE2_val == libAE8FC9D3_ge_KLAchievementToastStyle_Protoss) {
         DialogControlSetAnimationState(libAE8FC9D3_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_inactiveIndex], PlayerGroupSingle(lp_player), "StyleStateGroup", "ProtossState");
     }
     else {
@@ -1733,7 +1747,7 @@ int libAE8FC9D3_gf_KL_ReturnAchievementProgressBank (int lp_player, string lp_ac
 int libAE8FC9D3_gf_KL_ReturnAchievementProgressUser (int lp_player, string lp_achievement) {
     // Automatic Variable Declarations
     // Implementation
-    return UserDataGetInt("Achievements", lp_achievement, "Current Count", 1);
+    return UserDataGetInt("Achievements", lp_achievement, "Current Count", lp_player);
 }
 
 bool libAE8FC9D3_gf_KL_PlayerAchievementState (int lp_player, string lp_achievement) {

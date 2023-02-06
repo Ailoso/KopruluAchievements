@@ -7,12 +7,6 @@
         <Fields Id="Title" Type="Text" EditorColumn="3"/>
         <Fields Id="Description" Type="Text" EditorColumn="4"/>
         <Fields Id="Points" Type="Int" EditorColumn="5"/>
-        <Fields>
-            <Id value="Race"/>
-            <Type value="GameLink"/>
-            <GameLinkType value="Race"/>
-            <EditorColumn value="6"/>
-        </Fields>
         <Fields Id="RewardCache" Type="User" UserType="Rewards"/>
         <Fields>
             <Id value="Series"/>
@@ -21,19 +15,16 @@
             <Count value="10"/>
         </Fields>
         <Fields Id="Required Count" Type="Int" EditorColumn="10"/>
-        <Fields Id="AwardState" Type="String">
+        <Fields Id="AwardState" Type="String" Count="16">
             <Flags index="Modifiable" value="1"/>
         </Fields>
         <Fields Id="Category" Type="Int" EditorColumn="11"/>
         <Fields Id="IsPartofSeries" Type="String"/>
         <Fields Id="Criteria" Type="String"/>
-        <Fields Id="Current Count" Type="Int">
+        <Fields Id="Current Count" Type="Int" Count="16">
             <Flags index="Modifiable" value="1"/>
         </Fields>
         <Instances Id="[Default]">
-            <GameLink GameLink="Terr">
-                <Field Id="Race"/>
-            </GameLink>
             <Image Image="Assets\Textures\btn-ability-protoss-entomb.dds">
                 <Field Id="Icon"/>
             </Image>

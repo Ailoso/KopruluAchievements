@@ -4,6 +4,9 @@ include "TriggerLibs/natives"
 // Library: Koprulu Achievements
 //--------------------------------------------------------------------------------------------------
 // Preset Declarations
+const int libAE8FC9D3_ge_KLAchievementToastStyle_Terran = 0;
+const int libAE8FC9D3_ge_KLAchievementToastStyle_Protoss = 1;
+const int libAE8FC9D3_ge_KLAchievementToastStyle_Zerg = 2;
 const int libAE8FC9D3_ge_KL_AchievementCategories_NoCategory = 0;
 const int libAE8FC9D3_ge_KL_AchievementCategories_Roles = 1;
 const int libAE8FC9D3_ge_KL_AchievementCategories_RolesHuman = 2;
@@ -109,6 +112,7 @@ int[libAE8FC9D3_gv_kL_MaxPlayers + 1][libAE8FC9D3_gv_kL_MaxAvailableLists + 1] l
 int[libAE8FC9D3_gv_kL_MaxPlayers + 1][libAE8FC9D3_gv_kL_MaxAvailableLists + 1] libAE8FC9D3_gv_kL_MaxCount;
 int[libAE8FC9D3_gv_kL_MaxPlayers + 1][libAE8FC9D3_gv_kL_MaxAvailableLists + 1] libAE8FC9D3_gv_kL_CurrentCount;
 bool[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_AchievementsInitialized;
+int[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_ToastStyle;
 libAE8FC9D3_gs_KL_AchievementFanfarePanel[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_AchievementFanfarePanel;
 libAE8FC9D3_gs_KL_UserProfile[libAE8FC9D3_gv_kL_MaxPlayers + 1] libAE8FC9D3_gv_kL_UserProfile;
 libAE8FC9D3_gs_KL_AchievementListbox[libAE8FC9D3_gv_kL_MaxPlayers + 1][libAE8FC9D3_gv_kL_MaxAvailableLists + 1] libAE8FC9D3_gv_kL_AchievementListbox;
@@ -137,6 +141,7 @@ void libAE8FC9D3_gf_SetSummaryLastPlayedBackground (string lp_image, int lp_play
 void libAE8FC9D3_gf_SetCampaignCompletionLevel (int lp_slot, int lp_difficulty, int lp_player);
 void libAE8FC9D3_gf_SendCampaignCompletionLevelMessage (string lp_message, int lp_slot, int lp_player);
 void libAE8FC9D3_gf_SetAchievementCompletionValue (fixed lp_value, int lp_player);
+void libAE8FC9D3_gf_SetToastStyle (int lp_player, int lp_style);
 bool libAE8FC9D3_gf_PlayerHasAchievement (int lp_player, string lp_achievement);
 bank libAE8FC9D3_gf_ReturnPlayerBank (int lp_player);
 int libAE8FC9D3_gf_ReturnAchievementCategoryMaxPoints (int lp_player, int lp_categoryIndex);

@@ -17,6 +17,12 @@ They are as follows:
 
 `Required` to be placed a single time at Map Initialization, this action has no parameters and will ignore AI players and empty slots.
 
+## Set Toast Style
+
+This action sets the Achievement Toast Style per player, `Required` to be placed at least once During Map Intialization or after if the style is different than Terran.
+
+By default the style is set to Terran.
+
 ## Show User Profile
 
 This action can be used to open the User Profile as part of a custom button or game action, while in SinglePlayer the menu will pause the game until closed.
