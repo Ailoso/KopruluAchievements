@@ -18,7 +18,7 @@ For Full Instructions on how to use it, please follow the [Documentation](/Kopru
 ## Download
 **V1.0 is Out Now!**
 
-[![Version](https://img.shields.io/badge/Release-1.0-brightgreen)](https://github.com/Ailoso/KopruluAchievements/releases/tag/Release)
+[![Version](https://img.shields.io/badge/Release-1.1-brightgreen)](https://github.com/Ailoso/KopruluAchievements/releases/tag/v1.1.0)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Ailoso/KopruluAchievements?style=social)
 
 ## Supported Features
